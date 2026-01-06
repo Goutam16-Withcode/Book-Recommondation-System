@@ -441,6 +441,10 @@ def main():
             if "books_data.csv" in gen_error.lower():
                 st.warning("⚠️ **Dataset Missing!**\n\nPlease ensure `books_data.csv` is in the same directory as the app.")
             return
+        
+        # After successful generation, rerun the app to load it via load_model()
+        st.rerun()
+        
     elif model_error:
         st.markdown('<h1 class="main-title">📚 Book Recommendation System</h1>', unsafe_allow_html=True)
         st.error(f"❌ {model_error}")
