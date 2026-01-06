@@ -299,16 +299,19 @@ def generate_model():
         from sklearn.feature_extraction.text import TfidfVectorizer
         from sklearn.metrics.pairwise import linear_kernel
         
-        # Create placeholder containers for persistent messages
+        # Create containers for persistent messages
         warning_container = st.container()
         info_container = st.container()
         progress_container = st.container()
         
-        warning_container.warning("⚠️ Model file not found. Generating from data...")
-        info_container.info("🔨 Generating recommendation model from data... This may take 1-2 minutes on first run.")
+        with warning_container:
+            st.warning("⚠️ Model file not found. Generating from data...", icon="⚠️")
+        
+        with info_container:
+            st.info("🔨 Generating recommendation model from data... This may take 1-2 minutes on first run.", icon="🔨")
         
         with progress_container:
-            progress_bar = st.progress(0, text="Initializing...")
+            progress_bar = st.progress(0, text="Loading dataset...")
             
             # Load and prepare data
             progress_bar.progress(20, text="Loading dataset...")
@@ -329,7 +332,7 @@ def generate_model():
             cosine_sim = linear_kernel(tfidf_matrix, tfidf_matrix)
             
             # Save model
-            progress_bar.progress(90, text="Saving model...")
+            progress_bar.progress(95, text="Saving model...")
             model_data = {
                 'tfidf_vectorizer': tfidf_vectorizer,
                 'tfidf_matrix': tfidf_matrix,
@@ -341,18 +344,7 @@ def generate_model():
                 pickle.dump(model_data, f)
             
             progress_bar.progress(100, text="✅ Model generated successfully!")
-            time.sleep(1.5)
-        
-        # Replace containers with success message
-        warning_container.empty()
-        info_container.empty()
-        progress_container.empty()
-        
-        st.success("✅ Model is ready! The app will now load with full functionality.", icon="✨")
-        time.sleep(2)
-        
-        # Rerun to refresh UI with model
-        st.rerun()
+            time.sleep(1)
         
         return model_data, None
         
@@ -367,7 +359,7 @@ def load_model():
     try:
         model_path = 'book_recommendation_model.pkl'
         
-        # If model doesn't exist, we'll generate it in main()
+        # If model doesn't exist, return special flag
         if not os.path.exists(model_path):
             return None, "MODEL_NOT_FOUND"
         
