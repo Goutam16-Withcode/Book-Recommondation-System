@@ -305,10 +305,10 @@ def generate_model():
         progress_container = st.container()
         
         with warning_container:
-            st.warning("⚠️ Model file not found. Generating from data...", icon="⚠️")
+            st.warning("Model file not found. Generating from data...", icon="⚠️")
         
         with info_container:
-            st.info("🔨 Generating recommendation model from data... This may take 1-2 minutes on first run.", icon="🔨")
+            st.info("Generating recommendation model from data... This may take 1-2 minutes on first run.", icon="🔨")
         
         with progress_container:
             progress_bar = st.progress(0, text="Loading dataset...")
@@ -343,7 +343,7 @@ def generate_model():
             with open('book_recommendation_model.pkl', 'wb') as f:
                 pickle.dump(model_data, f)
             
-            progress_bar.progress(100, text="✅ Model generated successfully!")
+            progress_bar.progress(100, text="Model generated successfully!")
             time.sleep(1)
         
         return model_data, None
