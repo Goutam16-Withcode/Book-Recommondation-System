@@ -288,13 +288,75 @@ h1, h2, h3, p, span, label {
 </style>
 """, unsafe_allow_html=True)
 
+# Generate model from data
+def generate_model():
+    """Generate recommendation model from CSV data"""
+    try:
+        from sklearn.feature_extraction.text import TfidfVectorizer
+        from sklearn.metrics.pairwise import linear_kernel
+        
+        st.info("🔨 Generating recommendation model from data... This may take 1-2 minutes on first run.")
+        progress_bar = st.progress(0)
+        status_text = st.empty()
+        
+        # Load and prepare data
+        status_text.text("Loading dataset...")
+        progress_bar.progress(20)
+        df = pd.read_csv('books_data.csv')
+        
+        # Convert rating to numeric
+        status_text.text("Processing book data...")
+        progress_bar.progress(40)
+        df['average_rating'] = pd.to_numeric(df['average_rating'], errors='coerce')
+        df['book_content'] = df['title'] + ' ' + df['authors']
+        
+        # Create TF-IDF vectors
+        status_text.text("Creating TF-IDF vectors...")
+        progress_bar.progress(60)
+        tfidf_vectorizer = TfidfVectorizer(stop_words='english')
+        tfidf_matrix = tfidf_vectorizer.fit_transform(df['book_content'])
+        
+        # Compute similarity
+        status_text.text("Computing similarity matrix...")
+        progress_bar.progress(80)
+        cosine_sim = linear_kernel(tfidf_matrix, tfidf_matrix)
+        
+        # Save model
+        status_text.text("Saving model...")
+        progress_bar.progress(90)
+        model_data = {
+            'tfidf_vectorizer': tfidf_vectorizer,
+            'tfidf_matrix': tfidf_matrix,
+            'cosine_sim': cosine_sim,
+            'df': df
+        }
+        
+        with open('book_recommendation_model.pkl', 'wb') as f:
+            pickle.dump(model_data, f)
+        
+        progress_bar.progress(100)
+        status_text.text("✅ Model generated successfully!")
+        time.sleep(1)
+        progress_bar.empty()
+        status_text.empty()
+        
+        return model_data, None
+        
+    except FileNotFoundError:
+        return None, "Dataset file (books_data.csv) not found!"
+    except Exception as e:
+        return None, f"Error generating model: {str(e)}"
+
 # Load the model with error handling
 @st.cache_resource
 def load_model():
     try:
         model_path = 'book_recommendation_model.pkl'
+        
+        # If model doesn't exist, generate it
         if not os.path.exists(model_path):
-            return None, "Model file not found"
+            st.warning("⚠️ Model file not found. Generating from data...")
+            return generate_model()
         
         with open(model_path, 'rb') as f:
             model_data = pickle.load(f)
@@ -367,7 +429,11 @@ def main():
     if model_error:
         st.markdown('<h1 class="main-title">📚 Book Recommendation System</h1>', unsafe_allow_html=True)
         st.error(f"❌ {model_error}")
-        st.info("📖 **How to fix:**\n\n1. Make sure you've run the **Book_Recommendation_System.ipynb** notebook first\n2. Verify that **book_recommendation_model.pkl** exists in this directory\n3. Refresh the page")
+        
+        if "books_data.csv" in model_error.lower():
+            st.warning("⚠️ **Dataset Missing!**\n\nPlease ensure `books_data.csv` is in the same directory as the app.")
+        else:
+            st.info("🔄 **Auto-generation failed.** Please ensure:\n\n1. `books_data.csv` exists in this directory\n2. You have internet access to install required packages\n3. Sufficient disk space is available\n\nTry refreshing the page to retry.")
         return
     
     df = model_data['df']

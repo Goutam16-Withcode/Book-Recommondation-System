@@ -57,22 +57,27 @@ cd "Book Recommendation System"
 
 2. **Install required packages**
 ```bash
-pip install streamlit pandas numpy scikit-learn pickle
+pip install -r requirements.txt
 ```
 
-3. **Generate the recommendation model** (one-time setup)
-```bash
-jupyter notebook Book_Recommendation_System.ipynb
-```
-- Run all cells in the notebook
-- This creates `book_recommendation_model.pkl`
-
-4. **Launch the Streamlit app**
+3. **Launch the Streamlit app** ⭐
 ```bash
 streamlit run app.py
 ```
 
 The app will open in your browser at `http://localhost:8501`
+
+> **Note**: The recommendation model will be **automatically generated on first run** from `books_data.csv`. This takes 1-2 minutes. Subsequent runs will be instant!
+
+### Optional: Pre-generate the Model
+
+If you want to generate the model before running the app:
+
+```bash
+jupyter notebook Book_Recommendation_System.ipynb
+```
+- Run all cells in the notebook
+- This creates `book_recommendation_model.pkl` (can be large, ~950 MB)
 
 ---
 
@@ -82,6 +87,8 @@ The app will open in your browser at `http://localhost:8501`
 ```bash
 streamlit run app.py
 ```
+- First time: Model will auto-generate (1-2 minutes)
+- Subsequent times: Instant load ⚡
 
 ### Step 2: Explore the Interface
 - **Header**: Animated title and subtitle welcome you
@@ -238,18 +245,50 @@ About
 
 ## 🛠️ Troubleshooting
 
-### Problem: "Model file not found"
+### Problem: Model not found on deployment
 **Solution**: 
-1. Open `Book_Recommendation_System.ipynb`
-2. Run all cells (Shift+Enter)
-3. Wait for `book_recommendation_model.pkl` to be created
-4. Refresh the Streamlit app
+The app **automatically generates** the model on first run. Just ensure:
+1. `books_data.csv` is in the project directory
+2. All packages from `requirements.txt` are installed
+3. App has write permissions to create the model file
+4. First run takes 1-2 minutes (patience! ⏳)
 
-### Problem: "Book not found"
+### Problem: Model generation fails
 **Solution**:
-- The book must exist in the dataset
-- Try typing partial book titles in the search box
-- Check spelling and formatting
+```bash
+# Clear Streamlit cache
+streamlit cache clear
+
+# Manually generate the model
+python -c "
+import pandas as pd
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import linear_kernel
+import pickle
+
+df = pd.read_csv('books_data.csv')
+df['average_rating'] = pd.to_numeric(df['average_rating'], errors='coerce')
+df['book_content'] = df['title'] + ' ' + df['authors']
+tfidf = TfidfVectorizer(stop_words='english')
+tfidf_matrix = tfidf.fit_transform(df['book_content'])
+cosine_sim = linear_kernel(tfidf_matrix, tfidf_matrix)
+
+model_data = {'tfidf_vectorizer': tfidf, 'tfidf_matrix': tfidf_matrix, 'cosine_sim': cosine_sim, 'df': df}
+with open('book_recommendation_model.pkl', 'wb') as f:
+    pickle.dump(model_data, f)
+
+print('✅ Model generated successfully!')
+"
+
+# Run app again
+streamlit run app.py
+```
+
+### Problem: "Dataset file not found"
+**Solution**:
+- Ensure `books_data.csv` is in the same directory as `app.py`
+- Check file name spelling (case-sensitive on Linux/Mac)
+- Verify file is not corrupted
 
 ### Problem: App won't start
 **Solution**:
