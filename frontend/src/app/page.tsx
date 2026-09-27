@@ -446,6 +446,7 @@ export default function Home() {
             {retrievalResult && (
               <div className="space-y-4 pt-3 border-t border-slate-200">
                 <div className="flex items-center justify-between">
+                  <h3 className="text-lg font-black text-slate-900 flex items-center gap-2">
                     <svg className="w-5 h-5 text-indigo-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M4 20h16" />
                       <path d="M4 20V4" />

@@ -6,6 +6,7 @@
     "dev": "npm --prefix frontend run dev",
     "build": "npm --prefix frontend run build",
     "start": "npm --prefix frontend run start",
+    "ml:serve": "python ml_service.py",
     "build:data": "node frontend/scripts/build-dataset.js"
   },
   "keywords": [

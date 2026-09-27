@@ -1,45 +1,40 @@
-# 📚 FolioMind — Advanced Multi-Vector Book Recommendation & Retrieval Engine
+# 📚 FolioMind — Scikit-Learn Machine Learning & Multi-Vector Book Retrieval Engine
 
-> **A high-performance Next.js 16 + React 19 + TypeScript web application** featuring an editorial **Deep Indigo, Midnight Slate, and Warm Amber** aesthetic, multi-vector hybrid retrieval (BM25 + TF-IDF Vector Spaces), Bayesian quality regularization, MMR catalog diversification, and explainable AI diagnostics.
+> **A high-performance Next.js 16 + React 19 + Python Scikit-Learn web application** featuring an editorial **Deep Indigo, Midnight Slate, and Warm Amber** aesthetic, true Machine Learning algorithms (Scikit-Learn TF-IDF N-grams, Cosine Nearest Neighbors, K-Means Latent Clustering), Bayesian rating regularization, and an architectural Hardcover Folio box pattern.
 
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=flat-square&logo=python)](https://python.org/)
+[![Scikit--Learn](https://img.shields.io/badge/Scikit--Learn-1.3%2B-orange?style=flat-square&logo=scikit-learn)](https://scikit-learn.org/)
 [![Next.js](https://img.shields.io/badge/Next.js-16%2B-black?style=flat-square&logo=next.js)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19-61dafb?style=flat-square&logo=react)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 [![TailwindCSS](https://img.shields.io/badge/TailwindCSS-v4-38bdf8?style=flat-square&logo=tailwindcss)](https://tailwindcss.com/)
-[![License](https://img.shields.io/badge/License-MIT-indigo?style=flat-square)](LICENSE)
 
 ---
 
-## 🌟 Key Highlights & Engineering Features
+## 🌟 Machine Learning & Data Science Architecture
 
 ```mermaid
 flowchart LR
-    A[Seed Book or Natural Query] --> B[Token & Latency Ingestion]
-    B --> C[BM25 Lexical Inverted Index]
-    B --> D[Semantic Vector Cosine Space]
-    B --> E[Author & Series Continuity Graph]
-    C --> F[Multi-Score Fusion & Bayesian Weighting]
-    D --> F
+    A[Raw Catalog: 11,127 Books] --> B[Feature Engineering & Text Cleaning]
+    B --> C[Scikit-Learn TfidfVectorizer: 5,000 Dimensions]
+    C --> D[Brute-Force Cosine NearestNeighbors KNN]
+    C --> E[K-Means Thematic Clustering: 8 Latent Themes]
+    D --> F[Explainable Term Attribution & Cosine Scoring]
     E --> F
-    F --> G[MMR Diversity Re-ranking]
-    G --> H[Top-K Recommendations + XAI Diagnostics]
+    F --> G[Next.js Interactive Visual Frontend]
 ```
 
-### 🧠 1. Multi-Vector Hybrid Retrieval Architecture
-- **BM25 Lexical Inverted Index**: Evaluates exact term frequencies and inverse document frequencies (IDF) across **17,793 unique vocabulary tokens**.
-- **Semantic & Thematic Vector Space**: Computes cosine alignment across book n-grams, literary tropes, and mood descriptors.
-- **Collaborative Author & Series Continuity Graph**: Rewards sequels, prequels, and same-author universe bibliography.
-- **Bayesian Rating Regularization**: Balances average ratings with vote consensus:
-  $$\text{Weighted Score} = \left(\frac{v}{v+m} \cdot R\right) + \left(\frac{m}{v+m} \cdot C\right)$$
-  Prevents obscure low-vote books from unfairly outranking timeless masterpieces like *Harry Potter*, *The Lord of the Rings*, or *Douglas Adams*.
-- **MMR (Maximal Marginal Relevance) Diversity Re-Ranking**: Dynamic parameter ($\lambda$) preventing repetitive recommendations and ensuring catalog diversity.
-- **Explainable AI (XAI) Diagnostics**: Mathematical breakdown of why each recommendation was retrieved (semantic synergy %, lexical density %, author affinity %, and matching concept tokens).
+### 🧠 1. True Machine Learning Pipeline (`ml_service.py`)
+- **Scikit-Learn `TfidfVectorizer`**: Fitted across all 11,127 books with 5,000 n-gram features (bi-grams 1–2), sublinear term frequency scaling, and English stop-word removal.
+- **Cosine Metric `NearestNeighbors` (KNN)**: High-speed brute-force cosine distance search computing exact vector similarities in under 10ms.
+- **Unsupervised `KMeans` Clustering**: Discovers 8 latent topic clusters across the catalog (*High Fantasy, Crime & Mystery, Classic Literature, Modern Fiction, Historical Chronicles, Sci-Fi Horizons, Philosophy, and Mythological Sagas*).
+- **Explainable Feature Attribution (XAI)**: Calculates Hadamard dot-product term overlap between seed and candidate TF-IDF vectors, revealing top contributing n-grams.
+- **Bayesian Rating Regularization**: Stabilizes ratings with prior consensus $C=3.93$ and $m=25$.
 
-### 🎨 2. Modern Editorial UI Design
-- **Refined Color Palette**: Deep Indigo (`#4f46e5`), Midnight Slate (`#0f172a`), and Warm Amber (`#f59e0b`) accents on a clean pearl-white studio background.
-- **Proportional 3D Book Jackets**: Custom cover palettes across genres (Royal Blue, Deep Indigo, Amber Gold, Slate, Royal Violet) with realistic spine creases and depth.
-- **Standardized Box Architecture**: Aligned title heights, uniform card footprints, and baseline button alignments across all rows.
-- **Responsive Navigation**: Sticky header with live comparison counter, fast search shortcut (`/`), and reading goal progress.
+### 🎨 2. Architectural Folio Card Pattern & Bespoke Non-AI Icons
+- **New Book Box Pattern**: Replaces generic cards with a tactile **Hardcover Folio Plate** featuring realistic binding cloth gradients, spine crease shadows, deckled-edge page layers, and fixed-baseline editorial typography.
+- **100% Unique, Non-AI SVG Glyphs**: Custom geometric SVG glyphs for Hybrid Explorer (dual-orbit node), ML Vector Lab (3D tensor axis), Catalog Intel (discrete frequency curve), and My Bookshelf (folio vault).
+- **Refined Navigation Cluster**: Seamlessly integrated `Search catalog... [/]` capsule and pulsing live `11,127 Indexed` status pill.
 
 ### 🧩 3. Comprehensive Feature Suite
 - **Hybrid Explorer Console**: Real-time fuzzy autocomplete across **11,127 books**, quick seed chips, and collapsible hyperparameter sliders (Semantic Weight, Lexical Weight, Author Affinity, Quality Boost, MMR Diversity).

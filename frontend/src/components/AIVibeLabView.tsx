@@ -308,22 +308,28 @@ export const AIVibeLabView: React.FC<MLVectorLabProps> = ({ onRunSemanticVibe, i
           <div className="p-3 bg-white rounded-lg border border-slate-200">
             <span className="text-slate-400 font-bold block mb-1">1. TF-IDF VECTORIZATION</span>
             <p className="text-slate-700 font-normal">
-              $$w_{i,j} = \text{tf}_{i,j} \times \log\left(\frac{1 + N}{1 + \text{df}_i}\right) + 1$$
+              w(t,d) = tf(t,d) × log((1 + N) / (1 + df(t))) + 1
+            </p>
+            <p className="text-slate-500 text-[10px] mt-1">
               Sublinear term frequency scaling applied across 5,000 bi-gram dimensions.
             </p>
           </div>
           <div className="p-3 bg-white rounded-lg border border-slate-200">
             <span className="text-slate-400 font-bold block mb-1">2. COSINE DISTANCE METRIC</span>
             <p className="text-slate-700 font-normal">
-              $$\cos(\mathbf{u}, \mathbf{v}) = \frac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{u}\|_2 \|\mathbf{v}\|_2}$$
+              cos(u, v) = (u · v) / (||u||₂ × ||v||₂)
+            </p>
+            <p className="text-slate-500 text-[10px] mt-1">
               Evaluated using Scikit-Learn Brute-Force NearestNeighbors in under 10ms.
             </p>
           </div>
           <div className="p-3 bg-white rounded-lg border border-slate-200">
             <span className="text-slate-400 font-bold block mb-1">3. BAYESIAN REGULARIZATION</span>
             <p className="text-slate-700 font-normal">
-              $$R_{\text{Bayes}} = \frac{v \cdot R + m \cdot C}{v + m}$$
-              Stabilizes ratings against small sample bias with prior $C=3.93$ and $m=25$.
+              R_bayes = (v · R + m · C) / (v + m)
+            </p>
+            <p className="text-slate-500 text-[10px] mt-1">
+              Stabilizes ratings against small sample bias with prior C=3.93 and m=25.
             </p>
           </div>
         </div>
