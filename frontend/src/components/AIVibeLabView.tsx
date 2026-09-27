@@ -3,15 +3,14 @@
 import React, { useState } from 'react';
 import { RetrievalParams } from '@/lib/retrieval-engine';
 import { 
-  Sparkles, 
   Send, 
   Lightbulb, 
   Wind, 
   Moon, 
-  Sun,
-  Coffee,
-  Sword,
-  Wand2
+  Sun, 
+  Coffee, 
+  Sword, 
+  Wand2 
 } from 'lucide-react';
 
 interface AIVibeLabProps {
@@ -116,8 +115,14 @@ export const AIVibeLabView: React.FC<AIVibeLabProps> = ({ onRunSemanticVibe, isL
       <div className="bg-white rounded-2xl border border-slate-200 p-6 lg:p-7 shadow-xs">
         <div className="max-w-3xl">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-50 text-violet-700 text-xs font-bold mb-3 border border-violet-200">
-            <Sparkles className="w-3.5 h-3.5 text-violet-600" />
-            <span>Semantic & Vibe Retrieval Engine</span>
+            <svg className="w-3.5 h-3.5 text-violet-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <circle cx="12" cy="12" r="9" />
+              <path d="m4.93 4.93 4.24 4.24" />
+              <path d="m14.83 9.17 4.24-4.24" />
+              <path d="m14.83 14.83 4.24 4.24" />
+              <path d="m9.17 14.83-4.24 4.24" />
+            </svg>
+            <span>Atmospheric & Vibe Retrieval Engine</span>
           </div>
 
           <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">

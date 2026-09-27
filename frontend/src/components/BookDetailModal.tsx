@@ -5,7 +5,6 @@ import { Book, RetrievalMatch } from '@/lib/retrieval-engine';
 import { 
   X, 
   Star, 
-  Sparkles, 
   Clock, 
   Bookmark, 
   GitCompare, 
@@ -177,7 +176,13 @@ export const BookDetailModal: React.FC<BookDetailModalProps> = ({
             <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-3">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <Sparkles className="w-4 h-4 text-indigo-600" />
+                  <svg className="w-4 h-4 text-indigo-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <circle cx="12" cy="12" r="9" />
+                    <path d="M12 3v3" />
+                    <path d="M12 18v3" />
+                    <path d="M3 12h3" />
+                    <path d="M18 12h3" />
+                  </svg>
                   <span className="text-xs font-black uppercase tracking-wider text-slate-800">
                     Retrieval Affinity Score Breakdown
                   </span>

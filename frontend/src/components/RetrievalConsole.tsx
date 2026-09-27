@@ -4,7 +4,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Book, RetrievalParams } from '@/lib/retrieval-engine';
 import { 
   Search, 
-  Sparkles, 
   Sliders, 
   Filter, 
   X, 
