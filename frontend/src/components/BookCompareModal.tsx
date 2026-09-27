@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Book } from '@/lib/retrieval-engine';
-import { X, Star, Award, Clock, Trash2, ArrowRight } from 'lucide-react';
+import { X, Trash2, ArrowRight } from 'lucide-react';
 
 interface BookCompareModalProps {
   books: Book[];
@@ -24,19 +24,19 @@ export const BookCompareModal: React.FC<BookCompareModalProps> = ({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-emerald-950/40 backdrop-blur-sm animate-fadeIn">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/50 backdrop-blur-sm animate-fadeIn">
       <div className="absolute inset-0" onClick={onClose} />
 
-      <div className="relative w-full max-w-5xl bg-white rounded-3xl border border-emerald-200 shadow-2xl overflow-hidden z-10 max-h-[90vh] flex flex-col">
+      <div className="relative w-full max-w-5xl bg-white rounded-2xl border border-slate-200 shadow-2xl overflow-hidden z-10 max-h-[90vh] flex flex-col">
         
         {/* Top bar */}
-        <div className="p-5 border-b border-[#e2ece5] flex items-center justify-between bg-[#f8fbf9]">
+        <div className="p-4 sm:p-5 border-b border-slate-200 flex items-center justify-between bg-slate-50">
           <div>
-            <h3 className="text-base sm:text-lg font-black text-[#0f2a1e]">
-              Side-by-Side Book Comparison ({books.length} Books)
+            <h3 className="text-base sm:text-lg font-black text-slate-900">
+              Side-by-Side Comparison ({books.length} Books)
             </h3>
-            <p className="text-xs text-[#52705e]">
-              Direct attribute, rating quality & mood matrix comparison
+            <p className="text-xs text-slate-500">
+              Attribute, quality score & mood matrix comparison
             </p>
           </div>
 
@@ -44,14 +44,14 @@ export const BookCompareModal: React.FC<BookCompareModalProps> = ({
             {books.length > 0 && (
               <button
                 onClick={onClearAll}
-                className="text-xs text-red-600 hover:text-red-700 font-semibold px-2 py-1 rounded-lg hover:bg-red-50 transition-colors"
+                className="text-xs text-red-600 hover:text-red-700 font-semibold px-2 py-1 rounded-lg hover:bg-red-50 transition-colors cursor-pointer"
               >
                 Clear All
               </button>
             )}
             <button
               onClick={onClose}
-              className="p-2 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-600 transition-colors"
+              className="p-1.5 rounded-lg bg-slate-200/80 hover:bg-slate-300 text-slate-600 transition-colors cursor-pointer"
             >
               <X className="w-5 h-5" />
             </button>
@@ -59,9 +59,9 @@ export const BookCompareModal: React.FC<BookCompareModalProps> = ({
         </div>
 
         {/* Content Table / Columns */}
-        <div className="p-6 overflow-x-auto overflow-y-auto">
+        <div className="p-5 sm:p-6 overflow-x-auto overflow-y-auto">
           {books.length === 0 ? (
-            <div className="py-16 text-center text-[#52705e]">
+            <div className="py-16 text-center text-slate-500">
               <p className="font-bold text-sm">No books selected for comparison yet.</p>
               <p className="text-xs mt-1">Click the comparison icon on any book card to compare their attributes.</p>
             </div>
@@ -74,16 +74,16 @@ export const BookCompareModal: React.FC<BookCompareModalProps> = ({
                 return (
                   <div 
                     key={book.id}
-                    className="p-4 rounded-2xl bg-[#fafdfb] border border-[#d6e5dc] flex flex-col justify-between space-y-4"
+                    className="p-4 rounded-xl bg-slate-50 border border-slate-200 flex flex-col justify-between space-y-4"
                   >
                     {/* Header with Remove */}
                     <div className="flex items-start justify-between">
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-full">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-indigo-700 bg-indigo-50 border border-indigo-200 px-2 py-0.5 rounded-full">
                         {book.genres[0]}
                       </span>
                       <button
                         onClick={() => onRemoveBook(book.id)}
-                        className="text-gray-400 hover:text-red-500 p-1 transition-colors"
+                        className="text-slate-400 hover:text-red-500 p-1 transition-colors cursor-pointer"
                         title="Remove from compare"
                       >
                         <Trash2 className="w-3.5 h-3.5" />
@@ -108,35 +108,35 @@ export const BookCompareModal: React.FC<BookCompareModalProps> = ({
                     {/* Comparison rows */}
                     <div className="space-y-2.5 text-xs">
                       <div>
-                        <span className="text-[10px] uppercase font-bold text-[#698875] block">Full Title:</span>
-                        <p className="font-bold text-[#102d20] leading-snug line-clamp-2">{book.title}</p>
+                        <span className="text-[10px] uppercase font-bold text-slate-500 block">Full Title:</span>
+                        <p className="font-bold text-slate-900 leading-snug line-clamp-2">{book.title}</p>
                       </div>
 
                       <div>
-                        <span className="text-[10px] uppercase font-bold text-[#698875] block">Authors:</span>
-                        <p className="text-[#3b5947] truncate">{book.authors}</p>
+                        <span className="text-[10px] uppercase font-bold text-slate-500 block">Authors:</span>
+                        <p className="text-slate-700 truncate">{book.authors}</p>
                       </div>
 
                       <div className="grid grid-cols-2 gap-2 pt-1">
-                        <div className="p-2 bg-amber-50 border border-amber-200 rounded-xl text-center">
+                        <div className="p-2 bg-amber-50 border border-amber-200 rounded-lg text-center">
                           <span className="text-[9px] uppercase font-bold text-amber-800 block">Rating</span>
                           <span className="text-xs font-black text-amber-900">★ {book.rating.toFixed(2)}</span>
                         </div>
 
-                        <div className="p-2 bg-emerald-50 border border-emerald-200 rounded-xl text-center">
-                          <span className="text-[9px] uppercase font-bold text-emerald-800 block">Bayesian</span>
-                          <span className="text-xs font-black text-emerald-900">{book.bayesianScore}</span>
+                        <div className="p-2 bg-indigo-50 border border-indigo-200 rounded-lg text-center">
+                          <span className="text-[9px] uppercase font-bold text-indigo-800 block">Bayesian</span>
+                          <span className="text-xs font-black text-indigo-900">{book.bayesianScore}</span>
                         </div>
                       </div>
 
                       <div>
-                        <span className="text-[10px] uppercase font-bold text-[#698875] block">Length & Time:</span>
-                        <p className="text-[#3b5947] font-semibold">{book.pages} pages (~{readingHours} hours)</p>
+                        <span className="text-[10px] uppercase font-bold text-slate-500 block">Length:</span>
+                        <p className="text-slate-700 font-semibold">{book.pages} pages (~{readingHours}h)</p>
                       </div>
 
                       <div>
-                        <span className="text-[10px] uppercase font-bold text-[#698875] block">Mood / Atmosphere:</span>
-                        <span className="inline-block text-[11px] font-medium bg-[#f0fcf6] text-teal-900 px-2 py-0.5 rounded-md border border-teal-200 mt-0.5">
+                        <span className="text-[10px] uppercase font-bold text-slate-500 block">Mood:</span>
+                        <span className="inline-block text-[11px] font-medium bg-slate-100 text-slate-700 px-2 py-0.5 rounded-md border border-slate-200 mt-0.5">
                           {book.moods[0]}
                         </span>
                       </div>
@@ -148,7 +148,7 @@ export const BookCompareModal: React.FC<BookCompareModalProps> = ({
                         onPivotSeed(book);
                         onClose();
                       }}
-                      className="w-full py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition-colors flex items-center justify-center gap-1 cursor-pointer"
+                      className="w-full py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-xs font-bold transition-colors flex items-center justify-center gap-1 cursor-pointer"
                     >
                       <span>Find Similar</span>
                       <ArrowRight className="w-3.5 h-3.5" />

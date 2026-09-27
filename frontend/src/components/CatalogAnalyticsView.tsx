@@ -8,7 +8,6 @@ import {
   Users, 
   Star, 
   TrendingUp, 
-  Layers, 
   Award,
   ArrowRight,
   Database
@@ -42,8 +41,8 @@ export const CatalogAnalyticsView: React.FC<CatalogAnalyticsViewProps> = ({ onPi
   if (loading) {
     return (
       <div className="py-24 text-center">
-        <div className="w-10 h-10 border-4 border-emerald-500 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-        <p className="text-sm font-bold text-emerald-900">Crunching Catalog Telemetry...</p>
+        <div className="w-9 h-9 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin mx-auto mb-3" />
+        <p className="text-sm font-bold text-slate-800">Analyzing Catalog Telemetry...</p>
       </div>
     );
   }
@@ -56,47 +55,47 @@ export const CatalogAnalyticsView: React.FC<CatalogAnalyticsViewProps> = ({ onPi
       {/* Overview Cards */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         
-        <div className="bg-white p-5 rounded-3xl border border-[#dce8df] shadow-xs flex items-center gap-4">
-          <div className="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center flex-shrink-0">
-            <BookOpen className="w-6 h-6 text-emerald-600" />
+        <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs flex items-center gap-4">
+          <div className="w-11 h-11 rounded-xl bg-indigo-50 text-indigo-700 flex items-center justify-center flex-shrink-0">
+            <BookOpen className="w-5 h-5 text-indigo-600" />
           </div>
           <div>
-            <span className="text-[10px] uppercase font-bold text-[#698875] tracking-wider block">Total Catalog</span>
-            <p className="text-2xl font-black text-[#0f291e]">{data.totalBooks.toLocaleString()}</p>
-            <p className="text-[10px] text-emerald-700 font-medium">Indexed volumes</p>
+            <span className="text-[10px] uppercase font-bold text-slate-500 tracking-wider block">Total Catalog</span>
+            <p className="text-2xl font-black text-slate-900">{data.totalBooks.toLocaleString()}</p>
+            <p className="text-[10px] text-indigo-600 font-medium">Indexed volumes</p>
           </div>
         </div>
 
-        <div className="bg-white p-5 rounded-3xl border border-[#dce8df] shadow-xs flex items-center gap-4">
-          <div className="w-12 h-12 rounded-2xl bg-teal-100 text-teal-800 flex items-center justify-center flex-shrink-0">
-            <Users className="w-6 h-6 text-teal-700" />
+        <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs flex items-center gap-4">
+          <div className="w-11 h-11 rounded-xl bg-violet-50 text-violet-700 flex items-center justify-center flex-shrink-0">
+            <Users className="w-5 h-5 text-violet-600" />
           </div>
           <div>
-            <span className="text-[10px] uppercase font-bold text-[#698875] tracking-wider block">Authors Network</span>
-            <p className="text-2xl font-black text-[#0f291e]">{data.totalAuthors.toLocaleString()}</p>
-            <p className="text-[10px] text-teal-700 font-medium">Distinct creators</p>
+            <span className="text-[10px] uppercase font-bold text-slate-500 tracking-wider block">Authors Network</span>
+            <p className="text-2xl font-black text-slate-900">{data.totalAuthors.toLocaleString()}</p>
+            <p className="text-[10px] text-violet-600 font-medium">Distinct creators</p>
           </div>
         </div>
 
-        <div className="bg-white p-5 rounded-3xl border border-[#dce8df] shadow-xs flex items-center gap-4">
-          <div className="w-12 h-12 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center flex-shrink-0">
-            <Star className="w-6 h-6 fill-amber-400 text-amber-500" />
+        <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs flex items-center gap-4">
+          <div className="w-11 h-11 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center flex-shrink-0">
+            <Star className="w-5 h-5 fill-amber-400 text-amber-500" />
           </div>
           <div>
-            <span className="text-[10px] uppercase font-bold text-[#698875] tracking-wider block">Average Rating</span>
-            <p className="text-2xl font-black text-[#0f291e]">{data.meanRating}</p>
-            <p className="text-[10px] text-amber-700 font-medium">Across all records</p>
+            <span className="text-[10px] uppercase font-bold text-slate-500 tracking-wider block">Average Rating</span>
+            <p className="text-2xl font-black text-slate-900">{data.meanRating}</p>
+            <p className="text-[10px] text-amber-600 font-medium">Across all records</p>
           </div>
         </div>
 
-        <div className="bg-white p-5 rounded-3xl border border-[#dce8df] shadow-xs flex items-center gap-4">
-          <div className="w-12 h-12 rounded-2xl bg-green-100 text-green-800 flex items-center justify-center flex-shrink-0">
-            <Database className="w-6 h-6 text-green-700" />
+        <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs flex items-center gap-4">
+          <div className="w-11 h-11 rounded-xl bg-sky-50 text-sky-700 flex items-center justify-center flex-shrink-0">
+            <Database className="w-5 h-5 text-sky-600" />
           </div>
           <div>
-            <span className="text-[10px] uppercase font-bold text-[#698875] tracking-wider block">Inverted Index</span>
-            <p className="text-2xl font-black text-[#0f291e]">17,793</p>
-            <p className="text-[10px] text-green-700 font-medium">Lexical & token nodes</p>
+            <span className="text-[10px] uppercase font-bold text-slate-500 tracking-wider block">Inverted Index</span>
+            <p className="text-2xl font-black text-slate-900">17,793</p>
+            <p className="text-[10px] text-sky-600 font-medium">Lexical & token nodes</p>
           </div>
         </div>
 
@@ -106,13 +105,13 @@ export const CatalogAnalyticsView: React.FC<CatalogAnalyticsViewProps> = ({ onPi
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         
         {/* Rating Distribution */}
-        <div className="bg-white p-6 rounded-3xl border border-[#dce8df] shadow-xs space-y-4">
+        <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs space-y-4">
           <div className="flex items-center justify-between">
-            <h3 className="font-extrabold text-base text-[#0f291e] flex items-center gap-2">
-              <TrendingUp className="w-4.5 h-4.5 text-emerald-600" />
+            <h3 className="font-extrabold text-base text-slate-900 flex items-center gap-2">
+              <TrendingUp className="w-4 h-4 text-indigo-600" />
               <span>Reader Rating Distribution</span>
             </h3>
-            <span className="text-xs text-[#52705e] font-semibold">11,127 Books</span>
+            <span className="text-xs text-slate-500 font-semibold">11,127 Books</span>
           </div>
 
           <div className="space-y-3 pt-2">
@@ -121,13 +120,13 @@ export const CatalogAnalyticsView: React.FC<CatalogAnalyticsViewProps> = ({ onPi
 
               return (
                 <div key={bucket}>
-                  <div className="flex justify-between text-xs font-bold text-[#204030] mb-1">
+                  <div className="flex justify-between text-xs font-bold text-slate-700 mb-1">
                     <span>{bucket} Stars</span>
                     <span>{count.toLocaleString()} books ({pct}%)</span>
                   </div>
-                  <div className="w-full h-3 bg-[#e2ede5] rounded-full overflow-hidden">
+                  <div className="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden">
                     <div 
-                      className="h-full bg-gradient-to-r from-emerald-400 to-green-600 rounded-full"
+                      className="h-full bg-gradient-to-r from-indigo-500 to-violet-600 rounded-full"
                       style={{ width: `${pct}%` }}
                     />
                   </div>
@@ -138,25 +137,25 @@ export const CatalogAnalyticsView: React.FC<CatalogAnalyticsViewProps> = ({ onPi
         </div>
 
         {/* Top Authors by Catalog Volume */}
-        <div className="bg-white p-6 rounded-3xl border border-[#dce8df] shadow-xs space-y-4">
+        <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs space-y-4">
           <div className="flex items-center justify-between">
-            <h3 className="font-extrabold text-base text-[#0f291e] flex items-center gap-2">
-              <Users className="w-4.5 h-4.5 text-teal-600" />
+            <h3 className="font-extrabold text-base text-slate-900 flex items-center gap-2">
+              <Users className="w-4 h-4 text-violet-600" />
               <span>Prolific Authors in Dataset</span>
             </h3>
-            <span className="text-xs text-[#52705e] font-semibold">Ranked by volume</span>
+            <span className="text-xs text-slate-500 font-semibold">Ranked by volume</span>
           </div>
 
-          <div className="divide-y divide-gray-100">
+          <div className="divide-y divide-slate-100">
             {data.topAuthors.slice(0, 6).map((authorData: any, idx: number) => (
               <div key={idx} className="py-2.5 flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <span className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold flex items-center justify-center">
+                  <span className="w-6 h-6 rounded-lg bg-indigo-50 text-indigo-800 text-xs font-bold flex items-center justify-center">
                     {idx + 1}
                   </span>
                   <div>
-                    <p className="text-xs font-bold text-[#102d20]">{authorData.author}</p>
-                    <p className="text-[11px] text-[#52705e]">{authorData.booksCount} published editions</p>
+                    <p className="text-xs font-bold text-slate-900">{authorData.author}</p>
+                    <p className="text-[11px] text-slate-500">{authorData.booksCount} published editions</p>
                   </div>
                 </div>
                 <div className="text-right">
@@ -172,14 +171,14 @@ export const CatalogAnalyticsView: React.FC<CatalogAnalyticsViewProps> = ({ onPi
       </div>
 
       {/* Top Bayesian Acclaimed Masterpieces */}
-      <div className="bg-white p-6 rounded-3xl border border-[#dce8df] shadow-xs space-y-4">
+      <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs space-y-4">
         <div className="flex items-center justify-between">
           <div>
-            <h3 className="font-extrabold text-base text-[#0f291e] flex items-center gap-2">
-              <Award className="w-5 h-5 text-emerald-600" />
+            <h3 className="font-extrabold text-base text-slate-900 flex items-center gap-2">
+              <Award className="w-5 h-5 text-indigo-600" />
               <span>Highest Bayesian-Rated Masterpieces in System</span>
             </h3>
-            <p className="text-xs text-[#52705e]">
+            <p className="text-xs text-slate-500">
               Regularized for vote reliability (combining average rating + volume consensus)
             </p>
           </div>
@@ -189,17 +188,17 @@ export const CatalogAnalyticsView: React.FC<CatalogAnalyticsViewProps> = ({ onPi
           {data.topRatedBooks.slice(0, 6).map((b: any, idx: number) => (
             <div 
               key={b.id} 
-              className="p-3.5 rounded-2xl bg-[#f8faf8] hover:bg-[#ecfdf5] border border-[#d6e5dc] hover:border-emerald-300 transition-colors flex items-center justify-between gap-3 group"
+              className="p-3.5 rounded-xl bg-slate-50 hover:bg-indigo-50/50 border border-slate-200 hover:border-indigo-300 transition-colors flex items-center justify-between gap-3 group"
             >
               <div className="min-w-0">
                 <div className="flex items-center gap-2">
-                  <span className="text-[10px] font-bold text-emerald-800 bg-emerald-100 px-1.5 py-0.2 rounded">
+                  <span className="text-[10px] font-bold text-indigo-700 bg-indigo-100/70 px-1.5 py-0.2 rounded">
                     Rank #{idx + 1}
                   </span>
                   <span className="text-xs font-black text-amber-700">★ {b.rating}</span>
                 </div>
-                <p className="text-xs font-bold text-[#0f291e] truncate mt-1">{b.title}</p>
-                <p className="text-[11px] text-[#52705e] truncate">by {b.authors}</p>
+                <p className="text-xs font-bold text-slate-900 truncate mt-1">{b.title}</p>
+                <p className="text-[11px] text-slate-500 truncate">by {b.authors}</p>
               </div>
 
               <button
@@ -220,12 +219,12 @@ export const CatalogAnalyticsView: React.FC<CatalogAnalyticsViewProps> = ({ onPi
                     genres: b.genres || ['Fantasy'],
                     moods: ['Epic & Grand'],
                     pages: 400,
-                    palette: { bg: '#e8f5e9', border: '#a5d6a7', spine: '#4caf50', text: '#1b5e20', badge: '#c8e6c9' },
+                    palette: { bg: '#eff6ff', border: '#bfdbfe', spine: '#2563eb', text: '#1e3a8a', badge: '#dbeafe' },
                     tokens: b.title.toLowerCase().split(' ')
                   };
                   onPivotSeed(bookMock);
                 }}
-                className="p-2 rounded-xl bg-white group-hover:bg-emerald-600 group-hover:text-white text-emerald-700 border border-emerald-200 transition-colors flex-shrink-0 cursor-pointer"
+                className="p-2 rounded-xl bg-white group-hover:bg-indigo-600 group-hover:text-white text-indigo-600 border border-slate-200 group-hover:border-indigo-600 transition-colors flex-shrink-0 cursor-pointer shadow-2xs"
                 title="Use as seed for recommendations"
               >
                 <ArrowRight className="w-4 h-4" />

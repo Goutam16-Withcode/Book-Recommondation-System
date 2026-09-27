@@ -5,13 +5,10 @@ import { Book } from '@/lib/retrieval-engine';
 import { 
   Bookmark, 
   BookOpen, 
-  Heart, 
-  CheckCircle, 
   Trash2, 
   Download, 
   Star, 
   ArrowRight,
-  Sparkles,
   Trophy
 } from 'lucide-react';
 
@@ -60,44 +57,44 @@ export const BookshelfView: React.FC<BookshelfViewProps> = ({
     <div className="space-y-6">
       
       {/* Bookshelf Header & Reading Goal Banner */}
-      <div className="bg-white rounded-3xl border border-[#d6e5dc] p-6 lg:p-8 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+      <div className="bg-white rounded-2xl border border-slate-200 p-6 lg:p-7 shadow-xs flex flex-col md:flex-row items-center justify-between gap-6">
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <Bookmark className="w-5 h-5 text-emerald-600" />
-            <h2 className="text-xl sm:text-2xl font-black text-[#0f2a1e]">
+            <Bookmark className="w-5 h-5 text-indigo-600" />
+            <h2 className="text-xl sm:text-2xl font-black text-slate-900">
               Personal Library & Bookshelf
             </h2>
           </div>
-          <p className="text-xs sm:text-sm text-[#52705e]">
+          <p className="text-xs sm:text-sm text-slate-500">
             Curated reading lists with persistent local shelf tracking and export tools.
           </p>
         </div>
 
         {/* Reading Goal Widget */}
-        <div className="w-full md:w-auto p-4 rounded-2xl bg-[#f0fdf4] border border-emerald-200 flex items-center gap-4">
-          <div className="w-12 h-12 rounded-2xl bg-emerald-600 text-white flex items-center justify-center font-black text-lg shadow-sm flex-shrink-0">
-            <Trophy className="w-6 h-6 text-amber-300" />
+        <div className="w-full md:w-auto p-4 rounded-xl bg-slate-50 border border-slate-200 flex items-center gap-4">
+          <div className="w-11 h-11 rounded-xl bg-indigo-600 text-white flex items-center justify-center font-black text-lg shadow-sm flex-shrink-0">
+            <Trophy className="w-5 h-5 text-amber-300" />
           </div>
           <div>
-            <div className="flex items-center justify-between gap-4 text-xs font-bold text-emerald-950">
+            <div className="flex items-center justify-between gap-4 text-xs font-bold text-slate-900">
               <span>Annual Reading Goal:</span>
-              <span>{completedCount} / {yearlyGoal} Books</span>
+              <span className="text-indigo-600">{completedCount} / {yearlyGoal} Books</span>
             </div>
-            <div className="w-48 h-2 bg-[#d7edd9] rounded-full overflow-hidden mt-1.5">
+            <div className="w-48 h-2 bg-slate-200 rounded-full overflow-hidden mt-1.5">
               <div 
-                className="h-full bg-gradient-to-r from-emerald-500 to-green-600 rounded-full transition-all duration-500"
+                className="h-full bg-indigo-600 rounded-full transition-all duration-500"
                 style={{ width: `${goalPercent}%` }}
               />
             </div>
-            <p className="text-[10px] text-emerald-700 mt-1 font-medium">
-              {goalPercent}% complete • {Math.max(0, yearlyGoal - completedCount)} more to target!
+            <p className="text-[10px] text-slate-500 mt-1 font-medium">
+              {goalPercent}% complete • {Math.max(0, yearlyGoal - completedCount)} books remaining
             </p>
           </div>
         </div>
       </div>
 
       {/* Category Tabs & Actions */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-white p-3 rounded-2xl border border-[#e2ede5]">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-white p-3 rounded-xl border border-slate-200">
         
         <div className="flex items-center gap-1.5 flex-wrap">
           {categories.map((cat) => {
@@ -108,14 +105,14 @@ export const BookshelfView: React.FC<BookshelfViewProps> = ({
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
+                className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
                   isActive
-                    ? 'bg-emerald-600 text-white shadow-xs'
-                    : 'text-[#41604f] hover:bg-emerald-50 hover:text-emerald-800'
+                    ? 'bg-indigo-600 text-white shadow-xs'
+                    : 'text-slate-600 hover:bg-slate-100'
                 }`}
               >
                 <span>{cat}</span>
-                <span className={`px-1.5 py-0.2 rounded-full text-[10px] ${isActive ? 'bg-emerald-800 text-white' : 'bg-gray-100 text-gray-700'}`}>
+                <span className={`px-1.5 py-0.2 rounded-full text-[10px] ${isActive ? 'bg-indigo-800 text-white' : 'bg-slate-100 text-slate-600'}`}>
                   {count}
                 </span>
               </button>
@@ -126,7 +123,7 @@ export const BookshelfView: React.FC<BookshelfViewProps> = ({
         {savedItems.length > 0 && (
           <button
             onClick={handleExportJSON}
-            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-emerald-800 bg-[#ecfdf5] hover:bg-emerald-100 border border-emerald-300 rounded-xl transition-colors cursor-pointer"
+            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-indigo-700 bg-indigo-50 hover:bg-indigo-100 border border-indigo-200 rounded-lg transition-colors cursor-pointer"
           >
             <Download className="w-3.5 h-3.5" />
             <span>Export Shelf (JSON)</span>
@@ -137,12 +134,12 @@ export const BookshelfView: React.FC<BookshelfViewProps> = ({
 
       {/* Book Grid */}
       {filteredItems.length === 0 ? (
-        <div className="p-16 text-center bg-white rounded-3xl border border-[#d6e5dc] space-y-3">
-          <BookOpen className="w-10 h-10 text-emerald-300 mx-auto" />
-          <h3 className="text-base font-bold text-[#143224]">
+        <div className="p-16 text-center bg-white rounded-2xl border border-slate-200 space-y-3">
+          <BookOpen className="w-9 h-9 text-slate-300 mx-auto" />
+          <h3 className="text-base font-bold text-slate-800">
             No books in "{activeCategory}" yet
           </h3>
-          <p className="text-xs text-[#52705e] max-w-md mx-auto">
+          <p className="text-xs text-slate-500 max-w-md mx-auto">
             Browse the Hybrid Explorer or AI Vibe Lab and click the bookmark icon on any book to add it here.
           </p>
         </div>
@@ -154,7 +151,7 @@ export const BookshelfView: React.FC<BookshelfViewProps> = ({
             return (
               <div 
                 key={book.id}
-                className="bg-white rounded-3xl border border-[#dce8df] p-4 shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
+                className="bg-white rounded-2xl border border-slate-200 p-4 shadow-xs hover:shadow-md transition-all flex flex-col justify-between"
               >
                 <div>
                   {/* Category switcher */}
@@ -162,7 +159,7 @@ export const BookshelfView: React.FC<BookshelfViewProps> = ({
                     <select
                       value={category}
                       onChange={(e) => onChangeCategory(book.id, e.target.value as ShelfCategory)}
-                      className="text-xs font-semibold bg-[#f0fdf4] text-emerald-900 border border-emerald-200 rounded-lg px-2 py-1 outline-none"
+                      className="text-xs font-semibold bg-slate-50 text-slate-800 border border-slate-200 rounded-lg px-2 py-1 outline-none cursor-pointer"
                     >
                       {categories.map((c) => (
                         <option key={c} value={c}>{c}</option>
@@ -171,7 +168,7 @@ export const BookshelfView: React.FC<BookshelfViewProps> = ({
 
                     <button
                       onClick={() => onRemoveItem(book.id)}
-                      className="text-gray-400 hover:text-red-500 p-1 transition-colors"
+                      className="text-slate-400 hover:text-red-500 p-1 transition-colors cursor-pointer"
                       title="Remove from Shelf"
                     >
                       <Trash2 className="w-4 h-4" />
@@ -181,7 +178,7 @@ export const BookshelfView: React.FC<BookshelfViewProps> = ({
                   {/* Book Card Visual */}
                   <div className="flex gap-3 items-start">
                     <div 
-                      className="w-18 h-26 rounded-xl p-2 flex flex-col justify-between select-none relative overflow-hidden flex-shrink-0"
+                      className="w-18 h-26 rounded-lg p-2 flex flex-col justify-between select-none relative overflow-hidden flex-shrink-0"
                       style={{ backgroundColor: p.bg, border: `1.5px solid ${p.border}` }}
                     >
                       <div className="book-spine-line" />
@@ -195,10 +192,10 @@ export const BookshelfView: React.FC<BookshelfViewProps> = ({
                     </div>
 
                     <div className="min-w-0">
-                      <h4 className="text-sm font-bold text-[#0f291e] line-clamp-2 leading-snug">
+                      <h4 className="text-sm font-bold text-slate-900 line-clamp-2 leading-snug">
                         {book.title}
                       </h4>
-                      <p className="text-xs text-[#52705e] truncate mt-0.5">
+                      <p className="text-xs text-slate-500 truncate mt-0.5">
                         {book.authors}
                       </p>
                       <div className="flex items-center gap-1 mt-2 text-xs font-bold text-amber-700">
@@ -209,14 +206,14 @@ export const BookshelfView: React.FC<BookshelfViewProps> = ({
                   </div>
                 </div>
 
-                <div className="mt-4 pt-3 border-t border-[#edf4ef] flex items-center justify-between">
-                  <span className="text-[10px] text-[#799484]">
+                <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+                  <span className="text-[10px] text-slate-400">
                     Added {new Date(addedAt).toLocaleDateString()}
                   </span>
 
                   <button
                     onClick={() => onPivotSeed(book)}
-                    className="text-xs font-bold text-emerald-800 hover:text-emerald-600 flex items-center gap-1 cursor-pointer"
+                    className="text-xs font-bold text-indigo-600 hover:text-indigo-800 flex items-center gap-1 cursor-pointer"
                   >
                     <span>Find Similar</span>
                     <ArrowRight className="w-3 h-3" />

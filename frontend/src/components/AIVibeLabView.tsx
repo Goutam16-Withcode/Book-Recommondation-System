@@ -1,15 +1,12 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Book, RetrievalParams } from '@/lib/retrieval-engine';
+import { RetrievalParams } from '@/lib/retrieval-engine';
 import { 
   Sparkles, 
-  Compass, 
   Send, 
   Lightbulb, 
   Wind, 
-  Flame, 
-  BookMarked, 
   Moon, 
   Sun,
   Coffee,
@@ -116,37 +113,37 @@ export const AIVibeLabView: React.FC<AIVibeLabProps> = ({ onRunSemanticVibe, isL
     <div className="space-y-6">
       
       {/* Hero Banner */}
-      <div className="bg-white rounded-3xl border border-[#d6e5dc] p-6 lg:p-8 shadow-sm">
+      <div className="bg-white rounded-2xl border border-slate-200 p-6 lg:p-7 shadow-xs">
         <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold mb-3 border border-emerald-200">
-            <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-50 text-violet-700 text-xs font-bold mb-3 border border-violet-200">
+            <Sparkles className="w-3.5 h-3.5 text-violet-600" />
             <span>Semantic & Vibe Retrieval Engine</span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl font-black text-[#0f291e] tracking-tight">
+          <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
             Discover by Atmosphere, Narrative Mood & Latent Tropes
           </h2>
 
-          <p className="text-xs sm:text-sm text-[#486b57] mt-2 leading-relaxed">
+          <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
             Unlike traditional keyword lookups, our semantic retrieval vectorizes emotional tone, atmospheric tropes, and thematic descriptors to unearth hidden gems matching your desired reading vibe.
           </p>
         </div>
 
         {/* Prompt Input Form */}
-        <form onSubmit={handleSubmit} className="mt-6">
+        <form onSubmit={handleSubmit} className="mt-5">
           <div className="relative">
             <textarea
               rows={3}
               value={prompt}
               onChange={(e) => setPrompt(e.target.value)}
               placeholder="Describe your desired reading vibe in natural words (e.g. 'A melancholic yet humorous journey with eccentric traveling companions, gentle wit, and a cozy ending')..."
-              className="w-full p-4 pr-32 rounded-2xl bg-[#fafdfa] border-2 border-[#cce0d2] focus:border-emerald-500 focus:bg-white focus:outline-none text-[#0f2a1e] placeholder-[#799484] text-sm font-medium resize-none shadow-inner"
+              className="w-full p-4 pr-32 rounded-xl bg-slate-50 border border-slate-300 focus:border-indigo-600 focus:bg-white focus:outline-none text-slate-900 placeholder-slate-400 text-sm font-medium resize-none shadow-inner"
             />
 
             <button
               type="submit"
               disabled={isLoading || !prompt.trim()}
-              className="absolute right-3 bottom-4 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center gap-2 shadow-md shadow-emerald-600/20 disabled:opacity-50 transition-all cursor-pointer"
+              className="absolute right-3 bottom-4 px-5 py-2.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs flex items-center gap-2 shadow-sm shadow-indigo-600/20 disabled:opacity-50 transition-all cursor-pointer"
             >
               <Send className="w-4 h-4" />
               <span>Query Vibe</span>
@@ -159,12 +156,12 @@ export const AIVibeLabView: React.FC<AIVibeLabProps> = ({ onRunSemanticVibe, isL
       <div>
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
-            <Lightbulb className="w-4 h-4 text-emerald-600" />
-            <h3 className="font-extrabold text-sm text-[#0f291e] uppercase tracking-wider">
+            <Lightbulb className="w-4 h-4 text-amber-500" />
+            <h3 className="font-extrabold text-sm text-slate-900 uppercase tracking-wider">
               Curated Vibe Archetypes & Presets
             </h3>
           </div>
-          <span className="text-xs text-[#52705e]">Click any recipe to activate</span>
+          <span className="text-xs text-slate-500">Click any preset to query</span>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -176,35 +173,35 @@ export const AIVibeLabView: React.FC<AIVibeLabProps> = ({ onRunSemanticVibe, isL
               <div
                 key={idx}
                 onClick={() => handleSelectRecipe(recipe, idx)}
-                className={`p-5 rounded-3xl border transition-all cursor-pointer flex flex-col justify-between space-y-3 ${
+                className={`p-5 rounded-2xl border transition-all cursor-pointer flex flex-col justify-between space-y-3 ${
                   isSelected
-                    ? 'bg-[#ecfdf5] border-emerald-400 shadow-md ring-2 ring-emerald-400/30'
-                    : 'bg-white hover:bg-[#f6fbf8] border-[#d8e6dc] hover:border-emerald-300 shadow-2xs'
+                    ? 'bg-indigo-50/70 border-indigo-400 shadow-md ring-2 ring-indigo-400/30'
+                    : 'bg-white hover:bg-slate-50 border-slate-200 hover:border-indigo-300 shadow-2xs'
                 }`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-2">
-                    <div className="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center">
-                      <IconComponent className="w-5 h-5 text-emerald-700" />
+                    <div className="w-9 h-9 rounded-lg bg-indigo-50 text-indigo-700 flex items-center justify-center">
+                      <IconComponent className="w-5 h-5" />
                     </div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-indigo-700 bg-indigo-50 border border-indigo-200 px-2 py-0.5 rounded-full">
                       {recipe.genre}
                     </span>
                   </div>
 
-                  <h4 className="font-bold text-sm text-[#0f291e] leading-snug">
+                  <h4 className="font-bold text-sm text-slate-900 leading-snug">
                     {recipe.title}
                   </h4>
-                  <p className="text-xs text-[#52705e] mt-1 line-clamp-2 leading-relaxed">
+                  <p className="text-xs text-slate-500 mt-1 line-clamp-2 leading-relaxed">
                     {recipe.desc}
                   </p>
                 </div>
 
-                <div className="pt-2 border-t border-[#e8f1ea] flex items-center justify-between text-xs">
-                  <span className="text-[11px] font-semibold text-teal-800">
+                <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
+                  <span className="text-[11px] font-semibold text-slate-600">
                     Mood: {recipe.mood}
                   </span>
-                  <span className="text-xs font-bold text-emerald-700 flex items-center gap-1">
+                  <span className="text-xs font-bold text-indigo-600 flex items-center gap-1">
                     Retrieve →
                   </span>
                 </div>
