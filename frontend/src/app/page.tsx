@@ -364,6 +364,7 @@ export default function Home() {
                           onToggleCompare={handleToggleCompare}
                           onOpenDetails={handleOpenDetails}
                           onPivotSeed={handlePivotSeed}
+                          onReadBook={handleOpenReader}
                         />
                       );
                     })}
@@ -401,10 +402,17 @@ export default function Home() {
                             </div>
                           </div>
 
-                          <div className="flex items-center gap-3 flex-shrink-0">
+                          <div className="flex items-center gap-2 flex-shrink-0">
                             <span className="text-xs font-black text-indigo-700 bg-indigo-50 px-2.5 py-1 rounded-lg border border-indigo-200">
                               {match.matchPercentage}% Match
                             </span>
+                            <button
+                              onClick={() => handleOpenReader(match.book)}
+                              className="px-2.5 py-1.5 rounded-lg bg-indigo-50 hover:bg-indigo-100 text-indigo-700 text-xs font-bold transition-colors cursor-pointer flex items-center gap-1 border border-indigo-200"
+                            >
+                              <BookOpen className="w-3.5 h-3.5" />
+                              <span>Read</span>
+                            </button>
                             <button
                               onClick={() => handlePivotSeed(match.book)}
                               className="px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold transition-colors cursor-pointer"
@@ -454,6 +462,7 @@ export default function Home() {
                       onToggleCompare={handleToggleCompare}
                       onOpenDetails={handleOpenDetails}
                       onPivotSeed={handlePivotSeed}
+                      onReadBook={handleOpenReader}
                     />
                   ))}
                 </div>
@@ -474,6 +483,7 @@ export default function Home() {
             onRemoveItem={handleRemoveFromShelf}
             onChangeCategory={handleChangeShelfCategory}
             onPivotSeed={handlePivotSeed}
+            onReadBook={handleOpenReader}
           />
         )}
 
@@ -490,6 +500,7 @@ export default function Home() {
         onToggleSave={handleToggleSave}
         onToggleCompare={handleToggleCompare}
         onPivotSeed={handlePivotSeed}
+        onReadBook={handleOpenReader}
       />
 
       {/* Book Compare Modal */}
@@ -500,6 +511,13 @@ export default function Home() {
         onRemoveBook={handleRemoveFromCompare}
         onClearAll={handleClearCompare}
         onPivotSeed={handlePivotSeed}
+      />
+
+      {/* Book Reader Modal */}
+      <BookReaderModal
+        book={selectedBookForReading}
+        isOpen={isReaderOpen}
+        onClose={() => setIsReaderOpen(false)}
       />
 
       {/* Modern Editorial Slate Footer */}

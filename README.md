@@ -50,6 +50,13 @@ flowchart LR
 - **Personal Bookshelf & Annual Goal Tracker**: Categorize books into *"Want to Read"*, *"Currently Reading"*, *"Favorites"*, and *"Completed"* with LocalStorage persistence and JSON export.
 - **Catalog Intelligence Dashboard**: Live analytics showing distribution charts across rating buckets, most prolific authors, and top 10 Bayesian masterpieces.
 
+### 📖 4. Immersive E-Reader & Full Book Access
+- **Interactive Fullscreen E-Reader**: Read chapters directly inside the web app with customizable reading themes (Studio White, Warm Parchment/Sepia, Midnight OLED Dark Mode).
+- **Audiobook / Text-to-Speech Engine**: Native SpeechSynthesis audio playback allowing users to listen to any chapter read aloud with play/pause controls.
+- **Customizable Typography & Layout**: Adjust font size (14px–26px), switch font families (Literary Serif, Modern Sans, Mono), and toggle fullscreen distraction-free mode.
+- **Progress Tracking & Bookmarks**: Automatic reading position saving per book in LocalStorage with progress bar and chapter switcher.
+- **Full Book Library Integrations**: Direct links to borrow or read the complete unabridged digital copies via Open Library, Google Books, Internet Archive, and Project Gutenberg.
+
 ---
 
 ## ⚡ Quick Start
