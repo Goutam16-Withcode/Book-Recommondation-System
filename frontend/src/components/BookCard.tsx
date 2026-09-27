@@ -11,7 +11,8 @@ import {
   BookMarked, 
   ChevronDown, 
   ChevronUp, 
-  ArrowRight
+  ArrowRight,
+  BookOpen
 } from 'lucide-react';
 import { ShelfCategory } from './BookshelfView';
 
@@ -24,6 +25,7 @@ interface BookCardProps {
   onToggleCompare: (book: Book) => void;
   onOpenDetails: (book: Book, match?: RetrievalMatch) => void;
   onPivotSeed: (book: Book) => void;
+  onReadBook?: (book: Book) => void;
 }
 
 export const BookCard: React.FC<BookCardProps> = ({
@@ -34,7 +36,8 @@ export const BookCard: React.FC<BookCardProps> = ({
   onToggleSave,
   onToggleCompare,
   onOpenDetails,
-  onPivotSeed
+  onPivotSeed,
+  onReadBook
 }) => {
   const { book, matchPercentage, breakdown, matchedConcepts, explanation } = match;
   const [showExplanation, setShowExplanation] = useState(false);
@@ -287,6 +290,17 @@ export const BookCard: React.FC<BookCardProps> = ({
           >
             <Info className="w-4 h-4" />
           </button>
+
+          {onReadBook && (
+            <button
+              onClick={() => onReadBook(book)}
+              className="h-9 px-2.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-bold text-xs flex items-center gap-1.5 border border-indigo-200 transition-all cursor-pointer shadow-2xs"
+              title="Open Book Reader"
+            >
+              <BookOpen className="w-3.5 h-3.5" />
+              <span>Read</span>
+            </button>
+          )}
 
         </div>
 

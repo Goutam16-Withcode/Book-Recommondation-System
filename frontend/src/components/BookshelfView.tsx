@@ -25,13 +25,15 @@ interface BookshelfViewProps {
   onRemoveItem: (bookId: string) => void;
   onChangeCategory: (bookId: string, newCategory: ShelfCategory) => void;
   onPivotSeed: (book: Book) => void;
+  onReadBook?: (book: Book) => void;
 }
 
 export const BookshelfView: React.FC<BookshelfViewProps> = ({
   savedItems,
   onRemoveItem,
   onChangeCategory,
-  onPivotSeed
+  onPivotSeed,
+  onReadBook
 }) => {
   const [activeCategory, setActiveCategory] = useState<ShelfCategory>('Want to Read');
 
@@ -211,13 +213,27 @@ export const BookshelfView: React.FC<BookshelfViewProps> = ({
                     Added {new Date(addedAt).toLocaleDateString()}
                   </span>
 
-                  <button
-                    onClick={() => onPivotSeed(book)}
-                    className="text-xs font-bold text-indigo-600 hover:text-indigo-800 flex items-center gap-1 cursor-pointer"
-                  >
-                    <span>Find Similar</span>
-                    <ArrowRight className="w-3 h-3" />
-                  </button>
+                  <div className="flex items-center gap-2">
+                    {onReadBook && (
+                      <button
+                        onClick={() => onReadBook(book)}
+                        className="text-xs font-bold text-indigo-700 bg-indigo-50 hover:bg-indigo-100 px-2.5 py-1 rounded-lg flex items-center gap-1 transition-colors cursor-pointer"
+                        title="Read this book"
+                      >
+                        <BookOpen className="w-3.5 h-3.5" />
+                        <span>Read</span>
+                      </button>
+                    )}
+
+                    <button
+                      onClick={() => onPivotSeed(book)}
+                      className="text-xs font-bold text-slate-600 hover:text-indigo-600 flex items-center gap-1 cursor-pointer"
+                      title="Find similar books"
+                    >
+                      <span>Similar</span>
+                      <ArrowRight className="w-3 h-3" />
+                    </button>
+                  </div>
                 </div>
               </div>
             );

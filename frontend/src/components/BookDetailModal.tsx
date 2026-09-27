@@ -10,7 +10,8 @@ import {
   Bookmark, 
   GitCompare, 
   ArrowRight, 
-  Award
+  Award,
+  BookOpen
 } from 'lucide-react';
 import { ShelfCategory } from './BookshelfView';
 
@@ -24,6 +25,7 @@ interface BookDetailModalProps {
   onToggleSave: (book: Book, shelfCategory?: ShelfCategory) => void;
   onToggleCompare: (book: Book) => void;
   onPivotSeed: (book: Book) => void;
+  onReadBook?: (book: Book) => void;
 }
 
 export const BookDetailModal: React.FC<BookDetailModalProps> = ({
@@ -35,7 +37,8 @@ export const BookDetailModal: React.FC<BookDetailModalProps> = ({
   isInCompare,
   onToggleSave,
   onToggleCompare,
-  onPivotSeed
+  onPivotSeed,
+  onReadBook
 }) => {
   if (!isOpen || !book) return null;
 
@@ -270,6 +273,19 @@ export const BookDetailModal: React.FC<BookDetailModalProps> = ({
               <GitCompare className="w-4 h-4" />
               <span>{isInCompare ? 'In Comparison' : 'Compare'}</span>
             </button>
+
+            {onReadBook && (
+              <button
+                onClick={() => {
+                  onReadBook(book);
+                  onClose();
+                }}
+                className="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold flex items-center gap-1.5 transition-all shadow-xs cursor-pointer"
+              >
+                <BookOpen className="w-4 h-4" />
+                <span>Read Full Book</span>
+              </button>
+            )}
           </div>
 
           <button

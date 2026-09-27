@@ -7,6 +7,7 @@ import { RetrievalPipelineBanner } from '@/components/RetrievalPipelineBanner';
 import { BookCard } from '@/components/BookCard';
 import { BookDetailModal } from '@/components/BookDetailModal';
 import { BookCompareModal } from '@/components/BookCompareModal';
+import { BookReaderModal } from '@/components/BookReaderModal';
 import { BookshelfView, SavedBookItem, ShelfCategory } from '@/components/BookshelfView';
 import { CatalogAnalyticsView } from '@/components/CatalogAnalyticsView';
 import { AIVibeLabView } from '@/components/AIVibeLabView';
@@ -35,6 +36,13 @@ export default function Home() {
   const [selectedMatchForDetails, setSelectedMatchForDetails] = useState<RetrievalMatch | null>(null);
   const [isDetailOpen, setIsDetailOpen] = useState(false);
   const [isCompareOpen, setIsCompareOpen] = useState(false);
+  const [selectedBookForReading, setSelectedBookForReading] = useState<Book | null>(null);
+  const [isReaderOpen, setIsReaderOpen] = useState(false);
+
+  const handleOpenReader = (book: Book) => {
+    setSelectedBookForReading(book);
+    setIsReaderOpen(true);
+  };
 
   // Bookshelf & Compare Collections (with localStorage persistence)
   const [savedShelf, setSavedShelf] = useState<SavedBookItem[]>([]);
