@@ -323,42 +323,44 @@ export const RetrievalConsole: React.FC<RetrievalConsoleProps> = ({
           )}
         </div>
 
-        {/* Quick Sample Seed Chips */}
-        <div className="flex items-center gap-2 flex-wrap text-xs pt-1">
-          <span className="text-slate-600 font-bold flex items-center gap-1">
-            <Flame className="w-3.5 h-3.5 text-amber-500" />
+        {/* Quick Sample Seed Chips Box */}
+        <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 flex items-center gap-2.5 flex-wrap text-xs">
+          <span className="text-slate-700 font-bold flex items-center gap-1.5 flex-shrink-0">
+            <Flame className="w-4 h-4 text-amber-500" />
             <span>Try Quick Seeds:</span>
           </span>
-          {PRESET_SEEDS.map((preset) => (
-            <button
-              key={preset.id}
-              onClick={() => {
-                const bookMock: Book = {
-                  id: preset.id,
-                  numId: parseInt(preset.id),
-                  title: preset.title,
-                  shortTitle: preset.title,
-                  authors: preset.author,
-                  authorsList: [preset.author],
-                  primaryAuthor: preset.author,
-                  rating: 4.5,
-                  ratingsCount: 15000,
-                  bayesianScore: 4.4,
-                  series: null,
-                  volume: null,
-                  genres: ['Fantasy'],
-                  moods: ['Whimsical & Magical'],
-                  pages: 350,
-                  palette: { bg: '#eff6ff', border: '#bfdbfe', spine: '#2563eb', text: '#1e3a8a', badge: '#dbeafe' },
-                  tokens: preset.title.toLowerCase().split(' ')
-                };
-                handleSelectBook(bookMock);
-              }}
-              className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-indigo-50 border border-slate-200 hover:border-indigo-300 text-slate-700 font-medium transition-all cursor-pointer"
-            >
-              {preset.title.slice(0, 24)}...
-            </button>
-          ))}
+          <div className="flex items-center gap-2 flex-wrap flex-1">
+            {PRESET_SEEDS.map((preset) => (
+              <button
+                key={preset.id}
+                onClick={() => {
+                  const bookMock: Book = {
+                    id: preset.id,
+                    numId: parseInt(preset.id),
+                    title: preset.title,
+                    shortTitle: preset.title,
+                    authors: preset.author,
+                    authorsList: [preset.author],
+                    primaryAuthor: preset.author,
+                    rating: 4.5,
+                    ratingsCount: 15000,
+                    bayesianScore: 4.4,
+                    series: null,
+                    volume: null,
+                    genres: ['Fantasy'],
+                    moods: ['Whimsical & Magical'],
+                    pages: 350,
+                    palette: { bg: '#eff6ff', border: '#bfdbfe', spine: '#2563eb', text: '#1e3a8a', badge: '#dbeafe' },
+                    tokens: preset.title.toLowerCase().split(' ')
+                  };
+                  handleSelectBook(bookMock);
+                }}
+                className="px-3 py-1.5 rounded-lg bg-white hover:bg-indigo-50 border border-slate-200 hover:border-indigo-300 text-slate-700 hover:text-indigo-700 font-semibold transition-all cursor-pointer shadow-2xs"
+              >
+                {preset.title.slice(0, 28)}...
+              </button>
+            ))}
+          </div>
         </div>
 
       </div>

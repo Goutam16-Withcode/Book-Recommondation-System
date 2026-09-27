@@ -340,7 +340,7 @@ export default function Home() {
 
                 {/* Recommendations Grid / List */}
                 {viewMode === 'grid' ? (
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 items-stretch">
                     {sortedMatches.map((match, idx) => {
                       const isSaved = savedShelf.some(item => item.book.id === match.book.id);
                       const isInCompare = compareList.some(b => b.id === match.book.id);

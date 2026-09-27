@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "FolioVerde | Advanced Multi-Vector Book Recommendation & Retrieval Engine",
+  title: "FolioMind | Advanced Multi-Vector Book Recommendation & Retrieval Engine",
   description: "Next-generation book discovery engine powered by multi-vector hybrid retrieval, BM25 indexing, Bayesian quality regularisation, and semantic atmosphere matching.",
 };
 
