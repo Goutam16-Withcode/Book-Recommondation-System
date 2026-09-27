@@ -143,3 +143,10 @@ streamlit_cache/
 *.tmp
 *.temp
 *.bak
+
+# Node & Next.js
+node_modules/
+.next/
+*.tsbuildinfo
+next-env.d.ts
+

@@ -1,48 +1,50 @@
-# 🌿 FolioVerde — Advanced Multi-Vector Book Recommendation & Retrieval Engine
+# 📚 FolioMind — Advanced Multi-Vector Book Recommendation & Retrieval Engine
 
-> **A modern Next.js 16 + TypeScript web application** featuring a light green and crisp white palette, multi-vector hybrid retrieval (BM25 + TF-IDF Vector Spaces), Bayesian quality regularization, MMR catalog diversification, and explainable AI diagnostics.
+> **A high-performance Next.js 16 + React 19 + TypeScript web application** featuring an editorial **Deep Indigo, Midnight Slate, and Warm Amber** aesthetic, multi-vector hybrid retrieval (BM25 + TF-IDF Vector Spaces), Bayesian quality regularization, MMR catalog diversification, and explainable AI diagnostics.
 
 [![Next.js](https://img.shields.io/badge/Next.js-16%2B-black?style=flat-square&logo=next.js)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19-61dafb?style=flat-square&logo=react)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
-[![License](https://img.shields.io/badge/License-MIT-emerald?style=flat-square)](LICENSE)
+[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-v4-38bdf8?style=flat-square&logo=tailwindcss)](https://tailwindcss.com/)
+[![License](https://img.shields.io/badge/License-MIT-indigo?style=flat-square)](LICENSE)
 
 ---
 
-## 🌟 What Makes This Project Advanced?
-
-This project elevates the original single-algorithm model into a **production-grade, multi-stage retrieval engine** with an interactive user experience designed around a soothing **light green, mint, sage, and white aesthetic**.
+## 🌟 Key Highlights & Engineering Features
 
 ```mermaid
 flowchart LR
-    A[User Query or Anchor Seed Book] --> B[Token & Latency Ingestion]
+    A[Seed Book or Natural Query] --> B[Token & Latency Ingestion]
     B --> C[BM25 Lexical Inverted Index]
     B --> D[Semantic Vector Cosine Space]
-    B --> E[Author & Series Affinity Graph]
+    B --> E[Author & Series Continuity Graph]
     C --> F[Multi-Score Fusion & Bayesian Weighting]
     D --> F
     E --> F
-    F --> G[MMR Diversity & Re-ranking]
+    F --> G[MMR Diversity Re-ranking]
     G --> H[Top-K Recommendations + XAI Diagnostics]
 ```
 
 ### 🧠 1. Multi-Vector Hybrid Retrieval Architecture
-- **BM25 Lexical Inverted Index**: Exact keyword and token frequency scoring with inverse document frequency across 17,793 unique vocabulary tokens.
-- **Semantic / Thematic Vector Matching**: Analyzes title n-grams, series continuity, and thematic tropes using cosine similarity simulation.
-- **Collaborative Author & Series Continuity Graph**: Direct bonuses for books within the same universe, sequential volume proximity (e.g. Volume #2 after #1), and shared author bibliography.
-- **Bayesian Rating Regularization**: Uses Bayesian consensus weighting $(v / (v + m)) \times R + (m / (v + m)) \times C$ to prevent obscure low-vote books from unfairly outranking timeless masterpieces like *Harry Potter*, *The Lord of the Rings*, or *Douglas Adams*.
-- **MMR (Maximal Marginal Relevance) Diversity Re-ranking**: User-tunable slider ($\lambda$) balancing relevance against catalogue diversity so you don't receive 10 repetitive editions of the same book.
-- **Explainable AI (XAI) Diagnostics**: Every retrieved book includes an explicit breakdown showing why it was recommended (semantic similarity %, keyword overlap %, author affinity %, and overlapping concept tags).
+- **BM25 Lexical Inverted Index**: Evaluates exact term frequencies and inverse document frequencies (IDF) across **17,793 unique vocabulary tokens**.
+- **Semantic & Thematic Vector Space**: Computes cosine alignment across book n-grams, literary tropes, and mood descriptors.
+- **Collaborative Author & Series Continuity Graph**: Rewards sequels, prequels, and same-author universe bibliography.
+- **Bayesian Rating Regularization**: Balances average ratings with vote consensus:
+  $$\text{Weighted Score} = \left(\frac{v}{v+m} \cdot R\right) + \left(\frac{m}{v+m} \cdot C\right)$$
+  Prevents obscure low-vote books from unfairly outranking timeless masterpieces like *Harry Potter*, *The Lord of the Rings*, or *Douglas Adams*.
+- **MMR (Maximal Marginal Relevance) Diversity Re-Ranking**: Dynamic parameter ($\lambda$) preventing repetitive recommendations and ensuring catalog diversity.
+- **Explainable AI (XAI) Diagnostics**: Mathematical breakdown of why each recommendation was retrieved (semantic synergy %, lexical density %, author affinity %, and matching concept tokens).
 
-### 🎨 2. Light Green & White Aesthetic UI
-- Curated color scheme inspired by matcha, sage, eucalyptus, and clean paper white (`#ffffff`, `#f0fdf4`, `#dcfce7`, `#10b981`, `#059669`, `#0f291e`).
-- 3D book spine cards with interactive hover tilt, custom decorative jackets, and OpenLibrary cover integration.
-- Responsive, glassmorphic floating panels and micro-animations.
+### 🎨 2. Modern Editorial UI Design
+- **Refined Color Palette**: Deep Indigo (`#4f46e5`), Midnight Slate (`#0f172a`), and Warm Amber (`#f59e0b`) accents on a clean pearl-white studio background.
+- **Proportional 3D Book Jackets**: Custom cover palettes across genres (Royal Blue, Deep Indigo, Amber Gold, Slate, Royal Violet) with realistic spine creases and depth.
+- **Standardized Box Architecture**: Aligned title heights, uniform card footprints, and baseline button alignments across all rows.
+- **Responsive Navigation**: Sticky header with live comparison counter, fast search shortcut (`/`), and reading goal progress.
 
-### 🧩 3. Rich Suite of Advanced Components
-- **Hybrid Explorer Console**: Real-time fuzzy autocomplete across 11,127 books, quick seed chips, and collapsible hyperparameter sliders.
-- **AI Vibe Lab**: Natural language atmospheric discovery ("Cozy Victorian countryside murder with tea", "Existential deep space sci-fi on artificial minds").
-- **Retrieval Pipeline Telemetry Banner**: Displays real-time query latency in milliseconds, evaluated candidates counter, and active retrieval strategy.
+### 🧩 3. Comprehensive Feature Suite
+- **Hybrid Explorer Console**: Real-time fuzzy autocomplete across **11,127 books**, quick seed chips, and collapsible hyperparameter sliders (Semantic Weight, Lexical Weight, Author Affinity, Quality Boost, MMR Diversity).
+- **AI Vibe Lab**: Natural language atmospheric discovery (*"Cozy Victorian countryside murder with tea"*, *"Deep philosophical sci-fi exploring consciousness"*).
+- **Retrieval Pipeline Telemetry Banner**: Displays real-time query latency in milliseconds, candidate count evaluated in memory, and active strategy.
 - **Interactive Book Dossier (Modal)**: In-depth reading time estimates, series volume continuity, and radar metric breakdowns.
 - **Side-by-Side Book Comparison Drawer**: Compare up to 4 books simultaneously across ratings, Bayesian score, page count, and mood atmosphere.
 - **Personal Bookshelf & Annual Goal Tracker**: Categorize books into *"Want to Read"*, *"Currently Reading"*, *"Favorites"*, and *"Completed"* with LocalStorage persistence and JSON export.
@@ -61,19 +63,21 @@ flowchart LR
 From the project root:
 
 ```bash
-# Install frontend dependencies (if not already installed)
+# Navigate to the frontend directory
 cd frontend
+
+# Install dependencies (if not already installed)
 npm install
 
 # Start development server
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open **[http://localhost:3000](http://localhost:3000)** in your browser.
 
 ---
 
-## 🗂️ Directory Structure
+## 🗂️ Project Directory Structure
 
 ```text
 Book-Recommondation-System/
@@ -84,14 +88,14 @@ Book-Recommondation-System/
 │   │   │   │   ├── recommend/route.ts  # Multi-vector retrieval endpoint
 │   │   │   │   ├── search/route.ts     # Fast fuzzy autocomplete
 │   │   │   │   └── analytics/route.ts  # Catalog telemetry & stats
-│   │   │   ├── globals.css             # Light green & white styling tokens
+│   │   │   ├── globals.css             # Deep Indigo, Slate & Amber design tokens
 │   │   │   ├── layout.tsx              # Root HTML & typography
 │   │   │   └── page.tsx                # Master responsive application
 │   │   ├── components/
 │   │   │   ├── Navbar.tsx              # Sticky header & tab switching
 │   │   │   ├── RetrievalConsole.tsx    # Search, seeds & hyperparameter tuning
 │   │   │   ├── RetrievalPipelineBanner.tsx # Latency & pipeline telemetry
-│   │   │   ├── BookCard.tsx            # 3D cover cards & XAI accordion
+│   │   │   ├── BookCard.tsx            # Standardized 3D cover cards & XAI accordion
 │   │   │   ├── BookDetailModal.tsx     # Full dossier & series continuity
 │   │   │   ├── BookCompareModal.tsx    # Side-by-side attribute comparison
 │   │   │   ├── BookshelfView.tsx       # Personal shelf & reading goals
@@ -106,7 +110,8 @@ Book-Recommondation-System/
 │       └── build-dataset.js            # CSV to indexed JSON converter
 ├── books_data.csv                      # 11,128 original Goodreads records
 ├── app.py                              # Legacy Streamlit prototype
-└── requirements.txt                    # Legacy Python dependencies
+├── requirements.txt                    # Legacy Python dependencies
+└── package.json                        # Root helper scripts
 ```
 
 ---
