@@ -1,0 +1,22 @@
+{
+  "name": "book-recommendation-system",
+  "version": "2.0.0",
+  "description": "Advanced Multi-Vector Next.js Book Recommendation & Retrieval Engine with Light Green & White UI",
+  "scripts": {
+    "dev": "npm --prefix frontend run dev",
+    "build": "npm --prefix frontend run build",
+    "start": "npm --prefix frontend run start",
+    "build:data": "node frontend/scripts/build-dataset.js"
+  },
+  "keywords": [
+    "book-recommendation",
+    "retrieval-engine",
+    "nextjs",
+    "hybrid-search",
+    "bm25",
+    "tf-idf",
+    "bayesian-rating"
+  ],
+  "author": "Goutam",
+  "license": "MIT"
+}

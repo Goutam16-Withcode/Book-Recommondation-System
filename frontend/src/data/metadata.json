@@ -1,0 +1,27 @@
+{
+  "totalBooks": 11127,
+  "totalAuthors": 4219,
+  "meanRating": 3.94,
+  "genres": [
+    "Fantasy",
+    "Mystery & Thriller",
+    "Science Fiction",
+    "History & Biography",
+    "Young Adult & Coming of Age",
+    "Literary & General Fiction",
+    "Poetry & Plays",
+    "Classics",
+    "Philosophy & Thought",
+    "Horror & Supernatural",
+    "Romance"
+  ],
+  "moods": [
+    "Whimsical & Magical",
+    "Epic & Grand",
+    "Thought-Provoking & Deep",
+    "Heartwarming & Cozy",
+    "Dark & Gripping",
+    "Fast-Paced & Thrilling"
+  ],
+  "generatedAt": "2026-09-27T13:08:33.746Z"
+}

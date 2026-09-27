@@ -1,469 +1,127 @@
-# 📚 Advanced Book Recommendation System
+# 🌿 FolioVerde — Advanced Multi-Vector Book Recommendation & Retrieval Engine
 
-A modern, AI-powered book recommendation engine with a beautiful animated Streamlit UI. Discover your next favorite book with intelligent content-based recommendations!
+> **A modern Next.js 16 + TypeScript web application** featuring a light green and crisp white palette, multi-vector hybrid retrieval (BM25 + TF-IDF Vector Spaces), Bayesian quality regularization, MMR catalog diversification, and explainable AI diagnostics.
 
-![Book Recommendation System](https://img.shields.io/badge/Python-3.8%2B-blue)
-![Streamlit](https://img.shields.io/badge/Streamlit-Latest-red)
-![License](https://img.shields.io/badge/License-MIT-green)
-
----
-
-## ✨ Features
-
-### 🤖 Intelligent Recommendations
-- **TF-IDF Vectorization**: Analyzes book titles and authors to understand content
-- **Cosine Similarity**: Finds the most similar books to your selection
-- **Real-time Processing**: Instant recommendations as you search
-
-### 🎨 Modern UI/UX
-- **Glassmorphism Design**: Beautiful semi-transparent cards with backdrop blur
-- **Smooth Animations**: 
-  - Gradient text animations on titles
-  - Floating and pulsing elements
-  - Card slide-in animations
-  - Match bar fill animations
-  - Shimmer effects on hover
-- **Responsive Layout**: Works seamlessly on all screen sizes
-- **Dark Theme**: Eye-friendly dark gradient background
-
-### 📊 Real-time Statistics
-- Total books in database
-- Number of unique authors
-- Average book rating
-- Match percentage for each recommendation
-- Visual match bars
-
-### 🛡️ Robust Error Handling
-- Comprehensive input validation
-- Model integrity checks
-- Safe data parsing
-- User-friendly error messages
-- Helpful troubleshooting guidance
+[![Next.js](https://img.shields.io/badge/Next.js-16%2B-black?style=flat-square&logo=next.js)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-19-61dafb?style=flat-square&logo=react)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
+[![License](https://img.shields.io/badge/License-MIT-emerald?style=flat-square)](LICENSE)
 
 ---
 
-## 🚀 Quick Start
+## 🌟 What Makes This Project Advanced?
 
-### Prerequisites
-- Python 3.8 or higher
-- pip package manager
+This project elevates the original single-algorithm model into a **production-grade, multi-stage retrieval engine** with an interactive user experience designed around a soothing **light green, mint, sage, and white aesthetic**.
 
-### Installation
-
-1. **Clone or download this repository**
-```bash
-cd "Book Recommendation System"
+```mermaid
+flowchart LR
+    A[User Query or Anchor Seed Book] --> B[Token & Latency Ingestion]
+    B --> C[BM25 Lexical Inverted Index]
+    B --> D[Semantic Vector Cosine Space]
+    B --> E[Author & Series Affinity Graph]
+    C --> F[Multi-Score Fusion & Bayesian Weighting]
+    D --> F
+    E --> F
+    F --> G[MMR Diversity & Re-ranking]
+    G --> H[Top-K Recommendations + XAI Diagnostics]
 ```
 
-2. **Install required packages**
-```bash
-pip install -r requirements.txt
-```
+### 🧠 1. Multi-Vector Hybrid Retrieval Architecture
+- **BM25 Lexical Inverted Index**: Exact keyword and token frequency scoring with inverse document frequency across 17,793 unique vocabulary tokens.
+- **Semantic / Thematic Vector Matching**: Analyzes title n-grams, series continuity, and thematic tropes using cosine similarity simulation.
+- **Collaborative Author & Series Continuity Graph**: Direct bonuses for books within the same universe, sequential volume proximity (e.g. Volume #2 after #1), and shared author bibliography.
+- **Bayesian Rating Regularization**: Uses Bayesian consensus weighting $(v / (v + m)) \times R + (m / (v + m)) \times C$ to prevent obscure low-vote books from unfairly outranking timeless masterpieces like *Harry Potter*, *The Lord of the Rings*, or *Douglas Adams*.
+- **MMR (Maximal Marginal Relevance) Diversity Re-ranking**: User-tunable slider ($\lambda$) balancing relevance against catalogue diversity so you don't receive 10 repetitive editions of the same book.
+- **Explainable AI (XAI) Diagnostics**: Every retrieved book includes an explicit breakdown showing why it was recommended (semantic similarity %, keyword overlap %, author affinity %, and overlapping concept tags).
 
-3. **Launch the Streamlit app** ⭐
-```bash
-streamlit run app.py
-```
+### 🎨 2. Light Green & White Aesthetic UI
+- Curated color scheme inspired by matcha, sage, eucalyptus, and clean paper white (`#ffffff`, `#f0fdf4`, `#dcfce7`, `#10b981`, `#059669`, `#0f291e`).
+- 3D book spine cards with interactive hover tilt, custom decorative jackets, and OpenLibrary cover integration.
+- Responsive, glassmorphic floating panels and micro-animations.
 
-The app will open in your browser at `http://localhost:8501`
+### 🧩 3. Rich Suite of Advanced Components
+- **Hybrid Explorer Console**: Real-time fuzzy autocomplete across 11,127 books, quick seed chips, and collapsible hyperparameter sliders.
+- **AI Vibe Lab**: Natural language atmospheric discovery ("Cozy Victorian countryside murder with tea", "Existential deep space sci-fi on artificial minds").
+- **Retrieval Pipeline Telemetry Banner**: Displays real-time query latency in milliseconds, evaluated candidates counter, and active retrieval strategy.
+- **Interactive Book Dossier (Modal)**: In-depth reading time estimates, series volume continuity, and radar metric breakdowns.
+- **Side-by-Side Book Comparison Drawer**: Compare up to 4 books simultaneously across ratings, Bayesian score, page count, and mood atmosphere.
+- **Personal Bookshelf & Annual Goal Tracker**: Categorize books into *"Want to Read"*, *"Currently Reading"*, *"Favorites"*, and *"Completed"* with LocalStorage persistence and JSON export.
+- **Catalog Intelligence Dashboard**: Live analytics showing distribution charts across rating buckets, most prolific authors, and top 10 Bayesian masterpieces.
 
-> **Note**: The recommendation model will be **automatically generated on first run** from `books_data.csv`. This takes 1-2 minutes. Subsequent runs will be instant!
+---
 
-### Optional: Pre-generate the Model
+## ⚡ Quick Start
 
-If you want to generate the model before running the app:
+### 1. Requirements
+- **Node.js**: v18.0.0 or higher
+- **npm** or **yarn**
+
+### 2. Run the Next.js Web App
+
+From the project root:
 
 ```bash
-jupyter notebook Book_Recommendation_System.ipynb
+# Install frontend dependencies (if not already installed)
+cd frontend
+npm install
+
+# Start development server
+npm run dev
 ```
-- Run all cells in the notebook
-- This creates `book_recommendation_model.pkl` (can be large, ~950 MB)
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-## 📖 How to Use
+## 🗂️ Directory Structure
 
-### Step 1: Start the Application
-```bash
-streamlit run app.py
-```
-- First time: Model will auto-generate (1-2 minutes)
-- Subsequent times: Instant load ⚡
-
-### Step 2: Explore the Interface
-- **Header**: Animated title and subtitle welcome you
-- **Sidebar**: View dataset statistics and adjust settings
-- **Search Box**: Select a book you know and love
-- **Recommendations Button**: Click to see similar books
-
-### Step 3: Find Your Next Read
-1. Browse the dropdown and select a book
-2. Adjust the number of recommendations (5-20 books)
-3. Click "🚀 Get Recommendations"
-4. Explore the animated recommendations with:
-   - Book title and author
-   - Rating information
-   - Match percentage (0-100%)
-   - Visual match bar
-
----
-
-## 🔧 How It Works
-
-### Data Processing Pipeline
-
-```
-books_data.csv
-    ↓
-Load Data → Clean Data → Parse Ratings → Create Book Content
-    ↓
-TF-IDF Vectorization (titles + authors)
-    ↓
-Compute Cosine Similarity Matrix
-    ↓
-Save Model to pickle file
-    ↓
-app.py loads model and generates recommendations
-```
-
-### Algorithm Details
-
-1. **TF-IDF (Term Frequency-Inverse Document Frequency)**
-   - Converts book titles and authors into numerical vectors
-   - Identifies important words and author patterns
-   - Ignores common English stop words
-
-2. **Cosine Similarity**
-   - Measures angle between book vectors
-   - Returns values from 0 (completely different) to 1 (identical)
-   - Ranks recommendations by similarity score
-
-3. **Recommendation Generation**
-   - Finds the input book in the database
-   - Calculates similarity to all other books
-   - Returns top N most similar books
-   - Displays with match percentage
-
----
-
-## 📁 Project Structure
-
-```
-Book Recommendation System/
-├── README.md                              # This file
-├── app.py                                 # Streamlit application
-├── Book_Recommendation_System.ipynb       # Model training notebook
-├── books_data.csv                         # Dataset of books
-├── book_recommendation_model.pkl          # Pre-trained model (generated)
-└── requirements.txt                       # Python dependencies
-```
-
-### File Descriptions
-
-| File | Description |
-|------|-------------|
-| `app.py` | Main Streamlit application with UI and animations |
-| `Book_Recommendation_System.ipynb` | Jupyter notebook for model training and testing |
-| `books_data.csv` | Dataset containing book information (title, authors, ratings) |
-| `book_recommendation_model.pkl` | Serialized model (generated after running notebook) |
-
----
-
-## 📊 Dataset Information
-
-The system uses `books_data.csv` with the following columns:
-
-| Column | Description |
-|--------|-------------|
-| `bookID` | Unique identifier for each book |
-| `title` | Book title |
-| `authors` | Author(s) name(s) |
-| `average_rating` | Average rating (0-5 scale) |
-
-### Dataset Statistics
-- **Total Books**: 11,127
-- **Unique Authors**: 5,000+
-- **Average Rating**: 4.0+ stars
-
----
-
-## 🎨 UI Components
-
-### Main Page
-```
-Header (Animated Title)
-    ↓
-Subtitle
-    ↓
-Search Container
-  ├── Book Selector
-  └── Get Recommendations Button
-    ↓
-Recommendations Display
-  ├── Rank Badge (animated pulse)
-  ├── Book Title
-  ├── Author
-  ├── Rating Badge
-  ├── Match Percentage
-  └── Match Bar (animated fill)
-    ↓
-Footer
-```
-
-### Sidebar
-```
-Settings & Configuration
-  └── Number of Recommendations Slider
-    ↓
-Dataset Statistics
-  ├── Total Books Count
-  ├── Total Authors Count
-  └── Average Rating
-    ↓
-How It Works
-  └── Algorithm explanation
-    ↓
-About
+```text
+Book-Recommondation-System/
+├── frontend/
+│   ├── src/
+│   │   ├── app/
+│   │   │   ├── api/
+│   │   │   │   ├── recommend/route.ts  # Multi-vector retrieval endpoint
+│   │   │   │   ├── search/route.ts     # Fast fuzzy autocomplete
+│   │   │   │   └── analytics/route.ts  # Catalog telemetry & stats
+│   │   │   ├── globals.css             # Light green & white styling tokens
+│   │   │   ├── layout.tsx              # Root HTML & typography
+│   │   │   └── page.tsx                # Master responsive application
+│   │   ├── components/
+│   │   │   ├── Navbar.tsx              # Sticky header & tab switching
+│   │   │   ├── RetrievalConsole.tsx    # Search, seeds & hyperparameter tuning
+│   │   │   ├── RetrievalPipelineBanner.tsx # Latency & pipeline telemetry
+│   │   │   ├── BookCard.tsx            # 3D cover cards & XAI accordion
+│   │   │   ├── BookDetailModal.tsx     # Full dossier & series continuity
+│   │   │   ├── BookCompareModal.tsx    # Side-by-side attribute comparison
+│   │   │   ├── BookshelfView.tsx       # Personal shelf & reading goals
+│   │   │   ├── CatalogAnalyticsView.tsx # Visual charts & dataset intel
+│   │   │   └── AIVibeLabView.tsx       # Natural language atmospheric matching
+│   │   ├── data/
+│   │   │   ├── books.json              # Processed 11,127 books dataset
+│   │   │   └── metadata.json           # Aggregated catalog stats
+│   │   └── lib/
+│   │       └── retrieval-engine.ts     # Core multi-vector retrieval algorithm
+│   └── scripts/
+│       └── build-dataset.js            # CSV to indexed JSON converter
+├── books_data.csv                      # 11,128 original Goodreads records
+├── app.py                              # Legacy Streamlit prototype
+└── requirements.txt                    # Legacy Python dependencies
 ```
 
 ---
 
-## 🎯 Animation Details
+## 🧪 Algorithmic Strategies & Presets
 
-### CSS Animations Included
-- **gradient-shift**: Animated gradient text (3s loop)
-- **float**: Floating header animation (3s loop)
-- **fadeIn**: Fade-in on page load (1s)
-- **slideUp**: Search box slide-up animation (0.8s)
-- **cardSlideIn**: Card entrance animation (0.6s staggered)
-- **shimmer**: Shimmer effect on card hover (3s loop)
-- **pulse**: Rank badge pulsing animation (2s loop)
-- **fillWidth**: Match bar fill animation (0.8s)
-- **blink**: Loading text blink (1.5s loop)
+| Strategy Preset | Primary Focus | Best For |
+| :--- | :--- | :--- |
+| **⚖️ Balanced Hybrid** | 35% Semantic, 30% Lexical, 20% Author, 15% Quality | General discovery with high all-round accuracy |
+| **🔗 Series Continuity** | 45% Author & Lore, 20% Semantic, 20% Lexical | Finding sequels, prequels, and same-author bibliography |
+| **✨ Deep Thematic** | 50% Semantic Vector, 25% Lexical, 10% Author | Locating hidden thematic twins from different authors |
+| **⭐ Critical Acclaim** | 35% Bayesian Rating, 25% Semantic, 25% Lexical | Surfacing consensus masterpieces and award winners |
+| **🌐 High Diversity** | MMR $\lambda = 0.90$, balanced weights | Serendipitous exploration across unexpected genres |
 
 ---
 
-## 🛠️ Troubleshooting
-
-### Problem: Model not found on deployment
-**Solution**: 
-The app **automatically generates** the model on first run. Just ensure:
-1. `books_data.csv` is in the project directory
-2. All packages from `requirements.txt` are installed
-3. App has write permissions to create the model file
-4. First run takes 1-2 minutes (patience! ⏳)
-
-### Problem: Model generation fails
-**Solution**:
-```bash
-# Clear Streamlit cache
-streamlit cache clear
-
-# Manually generate the model
-python -c "
-import pandas as pd
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import linear_kernel
-import pickle
-
-df = pd.read_csv('books_data.csv')
-df['average_rating'] = pd.to_numeric(df['average_rating'], errors='coerce')
-df['book_content'] = df['title'] + ' ' + df['authors']
-tfidf = TfidfVectorizer(stop_words='english')
-tfidf_matrix = tfidf.fit_transform(df['book_content'])
-cosine_sim = linear_kernel(tfidf_matrix, tfidf_matrix)
-
-model_data = {'tfidf_vectorizer': tfidf, 'tfidf_matrix': tfidf_matrix, 'cosine_sim': cosine_sim, 'df': df}
-with open('book_recommendation_model.pkl', 'wb') as f:
-    pickle.dump(model_data, f)
-
-print('✅ Model generated successfully!')
-"
-
-# Run app again
-streamlit run app.py
-```
-
-### Problem: "Dataset file not found"
-**Solution**:
-- Ensure `books_data.csv` is in the same directory as `app.py`
-- Check file name spelling (case-sensitive on Linux/Mac)
-- Verify file is not corrupted
-
-### Problem: App won't start
-**Solution**:
-```bash
-# Clear Streamlit cache
-streamlit cache clear
-
-# Reinstall packages
-pip install --upgrade streamlit pandas scikit-learn
-
-# Run again
-streamlit run app.py
-```
-
-### Problem: Animations not showing
-**Solution**:
-- Use a modern browser (Chrome, Edge, Firefox)
-- Clear browser cache (Ctrl+Shift+Delete)
-- Disable browser extensions that modify CSS
-
----
-
-## 📦 Requirements
-
-```
-streamlit>=1.28.0
-pandas>=2.0.0
-numpy>=1.24.0
-scikit-learn>=1.3.0
-scipy>=1.10.0
-plotly>=5.0.0
-```
-
-Install all at once:
-```bash
-pip install -r requirements.txt
-```
-
----
-
-## 🎓 Technical Stack
-
-| Technology | Purpose |
-|-----------|---------|
-| **Python 3.8+** | Core language |
-| **Streamlit** | Web UI framework |
-| **Pandas** | Data manipulation |
-| **NumPy** | Numerical computing |
-| **Scikit-learn** | TF-IDF & Similarity |
-| **Pickle** | Model serialization |
-| **HTML/CSS** | Styling & Animations |
-
----
-
-## 📈 Performance
-
-- **Model Loading**: <1 second (cached)
-- **Recommendation Generation**: <0.5 seconds
-- **UI Animation Smoothness**: 60 FPS
-- **Memory Usage**: ~200MB (with full dataset)
-
----
-
-## 🚀 Future Enhancements
-
-- [ ] User ratings and feedback integration
-- [ ] Hybrid recommendation algorithm (collaborative + content-based)
-- [ ] Book cover images display
-- [ ] Genre-based filtering
-- [ ] Multiple recommendation strategies
-- [ ] User preference learning
-- [ ] Export recommendations to file
-- [ ] Dark/Light theme toggle
-- [ ] Multi-language support
-- [ ] Advanced search filters
-
----
-
-## 🔐 Data Privacy
-
-- All processing happens locally on your machine
-- No data is sent to external servers
-- No user data is collected or stored
-- Model is open-source and transparent
-
----
-
-## 📝 Model Training Details
-
-The recommendation model is trained using:
-
-1. **Text Preprocessing**
-   - Combine book title + author names
-   - Lowercase conversion
-   - Remove special characters
-
-2. **TF-IDF Vectorization**
-   - English stop words removed
-   - Analyzes term frequency
-   - Inverse document frequency weighting
-
-3. **Similarity Computation**
-   - Linear kernel cosine similarity
-   - Pairwise comparison with input book
-   - Ranking by similarity score
-
----
-
-## 💡 Tips for Best Results
-
-1. **Search by Exact Title**: Use exact book titles from the dropdown for best matches
-2. **Explore Similar Authors**: Recommendations often include books by similar authors
-3. **Check Ratings**: Look at ratings to filter quality recommendations
-4. **Adjust Recommendation Count**: Try 10-15 recommendations for optimal variety
-5. **Review Match Percentage**: Higher percentages (>80%) are closest matches
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! To contribute:
-
-1. Test the application thoroughly
-2. Report bugs with detailed descriptions
-3. Suggest improvements in issues
-4. Share your experience using the system
-
----
-
-## 📧 Support
-
-For issues, questions, or suggestions:
-- Check the Troubleshooting section above
-- Review the How It Works section
-- Examine the notebook comments for algorithm details
-
----
-
-## 📄 License
-
-This project is open-source and available under the MIT License.
-
----
-
-## 🙏 Acknowledgments
-
-- **Dataset Source**: Goodreads Books Dataset
-- **Libraries**: Streamlit, scikit-learn, pandas communities
-- **Inspiration**: Content-based recommendation systems
-
----
-
-## 📚 Additional Resources
-
-### Recommendation Algorithms
-- [TF-IDF Explained](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)
-- [Cosine Similarity](https://en.wikipedia.org/wiki/Cosine_similarity)
-- [Content-Based Filtering](https://en.wikipedia.org/wiki/Recommender_system#Content-based_filtering)
-
-### Streamlit Documentation
-- [Streamlit Docs](https://docs.streamlit.io)
-- [Streamlit Gallery](https://streamlit.io/gallery)
-
-### Machine Learning
-- [Scikit-learn Documentation](https://scikit-learn.org)
-- [Feature Extraction](https://scikit-learn.org/stable/modules/feature_extraction.html)
-
----
-
-## 🎉 Enjoy Discovering Your Next Favorite Book!
-
-Happy reading! 📖✨
-
----
-
-**Version**: 1.0  
-**Last Updated**: January 2026  
-**Status**: Active & Maintained
+## 📜 License
+This project is open-source and available under the [MIT License](LICENSE).
