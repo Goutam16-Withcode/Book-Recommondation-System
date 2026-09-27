@@ -13,7 +13,6 @@ import { CatalogAnalyticsView } from '@/components/CatalogAnalyticsView';
 import { AIVibeLabView } from '@/components/AIVibeLabView';
 import { Book, RetrievalMatch, RetrievalParams, RetrievalResult } from '@/lib/retrieval-engine';
 import { 
-  Sparkles, 
   LayoutGrid, 
   List, 
   ArrowUpDown, 
@@ -253,9 +252,12 @@ export default function Home() {
             
             {/* Hero Section */}
             <div className="text-center max-w-3xl mx-auto space-y-2.5 pt-1">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-800 text-xs font-bold shadow-2xs">
-                <Sparkles className="w-3.5 h-3.5 text-indigo-600" />
-                <span>Next-Gen Machine Learning Recommender</span>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-800 text-xs font-bold shadow-2xs">
+                <svg className="w-3.5 h-3.5 text-indigo-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <circle cx="12" cy="12" r="9"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+                <span>Multi-Vector Retrieval Architecture</span>
               </div>
 
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
@@ -445,7 +447,13 @@ export default function Home() {
               <div className="space-y-4 pt-3 border-t border-slate-200">
                 <div className="flex items-center justify-between">
                   <h3 className="text-lg font-black text-slate-900 flex items-center gap-2">
-                    <Sparkles className="w-5 h-5 text-indigo-600" />
+                    <svg className="w-5 h-5 text-indigo-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <circle cx="12" cy="12" r="9" />
+                      <path d="m4.93 4.93 4.24 4.24" />
+                      <path d="m14.83 9.17 4.24-4.24" />
+                      <path d="m14.83 14.83 4.24 4.24" />
+                      <path d="m9.17 14.83-4.24 4.24" />
+                    </svg>
                     <span>Atmospheric Vibe Matches ({sortedMatches.length})</span>
                   </h3>
                 </div>
